@@ -44,6 +44,7 @@ nav:
     - { TIL: '/blog/categories/#til' }
     - { Django: '/blog/categories/#django' }
     - { Python: '/blog/categories/#python' }
+    - { Git: '/blog/categories/#git' }
     - { etc: '/blog/categories/#etc' }    
   About:          
     - '/about/'
@@ -63,3 +64,4 @@ mathjax: true # whether support mathjax
 google_analytics_token: 'UA-00000000-1' # leave blank if you don't want google analytics
 disqus_short_name: 'tothefullest08-github-io' # leave blank if you don't want disqus
 
+#Use the following plug-ins
