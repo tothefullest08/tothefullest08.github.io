@@ -18,6 +18,7 @@ sass:
   sass_dir: _scss    
 paginate: 5
 paginate_path: '/blog/page:num'
+encoding: utf-8
 
 version: 1.0.0
 
