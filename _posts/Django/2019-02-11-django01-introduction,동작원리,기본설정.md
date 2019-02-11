@@ -1,0 +1,245 @@
+---
+layout: post
+title: Django 01 - Introduction, 동작원리, 기본설정
+category: Django
+tags: [Django]
+---
+
+
+
+# What is Django?
+
+- Static Web :  HTML & CSS 등으로만 구성된 정말 단순한 웹서비스
+  - 이문서를 주세요 라고 요청하면, 어떠한 변형, 연산등도 없이,  단순히 문서를 보냄(응답). 서버의 파일이 도서관의 책처럼 적재되어 있고 클라이언트의 요청을 통해서해당 파일을 마치 책을 보는 것처럼 꺼 내 올 수만 있는 웹 서비스.
+
+- Dynamic Web(Web Application program)
+  - Static Web과 상반되는 개념. 동적으로파일을 생성하여 뿌려주는 Web.  장고는 Dynamic web이라고 하는 내부적으로 연산도 가능하고, 사용자의 인풋마다 다른 아웃풋을 보여주는 동적웹임. 
+
+
+
+![](http://www.cellbiol.com/bioinformatics_web_development/wp-content/uploads/2017/02/static_vs_dynamic_web_pages-1-768x564.png)
+
+
+
+
+
+- 웹 앱(웹  서비스) 를 만드는 것은 카페를 만드는 것과 매우 유사
+  - 카페 창업의 두가지 방법
+    - A-Z 모두 직접하기
+      "홍보 마케팅. 대출 점포인테리어, 레시피개발, 원자재 거래처 확보, 매출정산"
+    - 프렌차이즈 창업
+      " 기본적인 레시피나 필요한 재료는 알아서 제공해줄게. 넌  좋은 카페 만드는데 집중해!"
+  - 웹서비스 제작의 두가지 방법
+    - URL Parsing, DB setting, ORM, Security, Content Management Template, Caching, Web Server Settting
+    - 웹 프레임워크 사용
+      "기본적인 구조나 필요한 코드들은 알아서 제공해줄게. 넌 그냥 좋은 웹 서비스 만드는데 집중해!"
+      ex) Express JS, Ruby on Rails, Python django, JAVA Spring, PHP Laravel
+
+
+- 이미 다 차려놓은것에서 필요한 것만 가져다 쓰면 되기 때문에 편리함.
+  많은 웹사이트가 웹프레임워크  - 장고를 기반으로 제작이 되어있음 
+  (인스타그램,  NASA, 모질라, 빗버켓)
+
+
+
+# Django의 동작 원리(구조)
+
+- Django의 구조
+  - Model (데이터 관리)
+  - Template(사용자가 보는 화면)
+  - View(중간 관리자)
+
+
+
+- Django의 동작 원리
+  - 사용자가 1번 강의를 보겠다고 요청을 보냄 (URL  주소 입력)
+  - View (중간관리자)는 받은 요청을 확인하고, Model (데이터 관리)에 1번강의를 찾아달라고 지시를 내림.
+  - Model (데이터 관리)은 Database에서 1번 강의를 찾아서 View (중간관리자)에 전달
+  - View (중간관리자)는 1번강의를 Template에 전달하여,  HTML 파일과 조합하여 화면을 
+    사용자에게 전달
+
+  => django는 MTV Pattern으로 구조화 되어 있음.
+
+
+![](https://i.imgur.com/7wc39KX.png)
+
+| 구조     | 데이터 관리 | 사용자가 보는 화면 | 중간 관리자 |
+| :------- | ----------- | ------------------ | ----------- |
+| Standard | Model       | Template           | View        |
+| Django   | Model       | View               | Controller  |
+
+
+
+- C9 에 git ignore 설정하기
+  - https://github.com/github/gitignore/blob/master/Python.gitignore
+  - 해당 github의 파일을 raw 로 열어서 최상위 폴더 내에 .gitignore 이라는 이름으로 
+    파일 생성 후 내용 붙임.
+
+
+
+#  Django 기본 설정하기
+
+> Django 기본 설정은 cloud 기반의 웹서버를 대여해주는 [c9](https://ide.c9.io) 을 기반으로 작성되었습니다.  Django를 사용하는 환경에 따라 기본 설정 방식이 조금씩 다를 수 있습니다.
+
+
+
+### 1. 파이썬 가상환경 생성
+
+```bash
+#intro-venv 라는 가상환경 생성
+$ pyenv virtualenv 3.6.7 intro-venv
+
+#가상환경으로 만들고자 하는 디렉토리 접속 후 명령어 입력
+$ pyenv local intro-venv
+```
+
+
+
+### 2. 장고 설치 및 프로젝트/어플리케이션 생성
+
+- `pip install django` : 장고 설치
+- `django-admin startproject intro .` 
+  -  intro 라는 프로젝트를 장고 내에 생성
+  - `.` 을 입력하면, 현재 디렉토리에 어플리케이션을 생성함.
+- `python manage.py runserver $IP:$PORT` : 서버실행
+
+```BASH
+$ python manage.py runserver $IP:$PORT
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 15 unapplied migration(s). 
+Your project may not work properly until you apply 
+the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+
+January 24, 2019 - 01:35:48
+Django version 2.1.5, using settings 'intro.settings'
+Starting development server at http://0.0.0.0:8080/
+Quit the server with CONTROL-C.
+
+#서버 접속 시, 아래와 같이 에러
+#setting.py - ALLOWED_HOST에 추가를 해줘야함.
+DisallowedHost at /
+Invalid HTTP_HOST header: 'playground-tothefullest08.c9users.io:8080'. 
+You may need to add 'playground-tothefullest08.c9users.io' to ALLOWED_HOSTS.
+
+#setting.py
+ALLOWED_HOSTS = ['playground-harrylee0810.c9users.io']
+
+#장고는 디버깅 모드가 기본으로 설정되어 있어서 저장하고 새로고침하면 소스 내용이 자동 적용됨.
+```
+
+
+
+- 프로젝트 폴더 내 파일 종류
+
+
+| 파일종류     | 내용                                                         |
+| ------------ | ------------------------------------------------------------ |
+| \__init__.py | Intro 라는 폴더(프로젝트로 지정한 폴더)를 하나의 패키지/모듈로 인식시킴. 이를 통해  `intro.urls`  `intro.settings` 와 같은 기능을 사용 할 수 있음. 파이썬 파일을 불러오기 위해서는 \__init\___ 파일이 필요함. |
+| setting.py   | Django 내 설정들을 모아놓는 파일                             |
+| urls.py      | 프로젝트에 접근하기 위한 첫번째 문(문지기) 라는 개념임. 어떠한 요청이 Django 서버에 오면, 그 요청이 도착하는 곳이 urls.py이다.  요청을 urls.py에서 분석해서 어떠한 요청이 왔는지, 어떠한 주소로 왔는지를 보고 다른곳으로 전환하는 중개기(라우터)의 역할을 함. |
+| wsgi.py      | 실제로 서비스를 하기 위해서,  완성을 해서 24시간 돌아가는 서버에다가 코드를 올려놓고 사람들이 access하고 수정을 할 수 있게 하는 파일 |
+| manage.py    | 서버를 실행하기 위한 명령어 등을 저장하는 파일               |
+
+
+
+- \__init__.py 파일의 역할
+  - intro.settings와 같이 `.` 으로 타고 들어갈 수 있게 해주는 파일이 \_init__.py임.  
+  - 특정 폴더 내 파일에 접근하기 위해서는,  \__init__.py라는 파일이 있어야 그 폴더(intro; 프로젝트 명)를 하나의 모듈로 보고, 그 밑으로 들어갈 수 있게됨.
+  - ex) `intro.settings`  : intro라는 폴더(프로젝트로 지정된 폴더) 내에 settings.py라는 파일을 불러오겠다!
+
+```python
+#manage.py
+import os
+import sys
+
+if __name__ == '__main__':
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'intro.settings')
+```
+
+
+
+### 3. 어플리케이션 생성
+
+- `python manage.py startapp 어플명`:  어플리케이션을 생성하는 명령어
+- 어플리케이션 기본 설정:  `[어플리케이션명].apps.[클래스명]`
+  - 어플리케이션을 생성하면,  어플리케이션을 생성했다는 것을 django 에게 알려서 등록을 해야함.  앱의 정보는 apps.py (pages 라는 어플명의 폴더 안에 위치)에 저장되어있으며, 해당 파일 안의 클래스 명인 Pages.Config를  settings.py에 등록해아함. 
+
+```python
+#apps.py
+from django.apps import AppConfig
+
+class PagesConfig(AppConfig):
+    name = 'pages'
+
+#settings.py의 33rd line
+INSTALLED_APPS = [
+    
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    #추가
+    'pages.apps.PagesConfig',
+]
+```
+
+
+
+- 추가 설정
+  - 기본 시간대(time zone)와 기본 언어를 settings.py 파일 내에서 설정할 수 있음. 
+    tz의 값은 표준으로 정해진 [List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones 'tz')을 기반으로함 
+
+```python
+#settings.py의 107~109th line
+#변경전
+LANGUAGE_CODE = 'en-us'
+TIME_ZONE = 'UTC'
+
+#변경후
+LANGUAGE_CODE = 'ko-kr'
+TIME_ZONE = 'Asia/Seoul'
+```
+
+
+
+- 어플리케이션 폴더(예. pages) 내 파일 종류
+
+
+| 파일종류     | 내용                                                         |
+| ------------ | ------------------------------------------------------------ |
+| \__init__.py | 인트로라는 폴더가 하나의 패키지로 인식됨. intro.urls  intro.settings 와 같은 기능을 사용 할 수 있음. 파이썬 파일을 불러오기 위해서는 \__init\___ 파일이 필요함. |
+| apps.py      | 만든 어플리케이션의 정보가 담긴 파일                         |
+| models.py    | DB 관련된 코드를 작성하는 곳. 어플리케이션(예; pages)에서 사용할 DB를 정의함. 어떠한 데이터베이스 테이블을 만들건지 등을 정의하는 곳. |
+| tests.py     | 작성한 코드가 잘 동작하는지? 테스트하는곳.  테스트를 해주는 코드가 또 있음.  코드를 테스트하는 코드 (코드를 테스트하는 코드가 되려 더 많아질수도있음 - 주객전도) |
+| views.py     | 어떠한 요청이 들어왔을 때, 무엇을 실행할건지? 우리가 보게될 페이지를 만드는 곳?   페이지들이 모여있는 곳임. |
+
+
+
+### 4. templates 폴더 생성
+
+- 사용자가 보는 화면에 해당 하는 html 파일을 어플리켓이션 내에 templates 라는 폴더내에 저장시킨다.
+
+
+
+
+
+## Django 기본 설정 명령어 정리
+
+| 명령어                                     | 정의                        |
+| ------------------------------------------ | --------------------------- |
+| pyenv virtualenv 3.6.7 [가상환경 명]       | 가상환경 생성               |
+| pyenv local [가상환경 명]                  | 가상환경으로 설정           |
+| pip install django                         | 장고 설치                   |
+| django-admin startproject [프로젝트이름] . | 프로젝트 생성(현재 폴더 내) |
+| python manage.py startapp [앱이름]         | 어플리케이션 생성           |
+| python manage.py runserver $IP:$PORT       | 서버 실행                   |
+
+ 
+
+
