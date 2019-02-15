@@ -152,6 +152,7 @@ code,
 pre {
   font-family: Menlo, Monaco, "Courier New", monospace;
 }
+// 변수? `` 으로 묶이는 단어들에 대한 설정
 code {
   padding: .25em .5em;
   font-size: 85%;
@@ -159,6 +160,8 @@ code {
   background-color: #f9f9f9;
   border-radius: 3px;
 }
+
+// 코드박스
 pre {
   display: block;
   overflow-x: auto;
