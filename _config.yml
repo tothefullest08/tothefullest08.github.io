@@ -66,3 +66,5 @@ google_analytics_token: 'UA-00000000-1' # leave blank if you don't want google a
 disqus_short_name: 'tothefullest08-github-io' # leave blank if you don't want disqus
 
 #Use the following plug-ins
+gems:
+  - jekyll-paginate
