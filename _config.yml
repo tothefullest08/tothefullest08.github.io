@@ -46,7 +46,7 @@ nav:
     - { TIL: '/blog/categories/#TIL' }
     - { Django: '/blog/categories/#Django' }
     - { Python: '/blog/categories/#python' }
-    - { web: '/blog/categories/#Web' }
+    - { Web: '/blog/categories/#Web' }
     - { Git: '/blog/categories/#Git' }
     - { etc: '/blog/categories/#etc' }    
   About:          
