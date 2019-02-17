@@ -18,6 +18,7 @@ sass:
   sass_dir: _scss    
 paginate: 5
 paginate_path: '/blog/page:num'
+permalink: pretty
 encoding: utf-8
 
 version: 1.0.0
@@ -41,7 +42,7 @@ nav:
     - '/blog'
   Blog:           
     - '/'
-    # - { Categories All: '/blog/categories/' }
+    - { Categories All: '/blog/categories/' }
     - { TIL: '/blog/categories/#til' }
     - { Django: '/blog/categories/#django' }
     - { Python: '/blog/categories/#python' }
