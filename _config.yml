@@ -42,11 +42,12 @@ nav:
     - '/blog'
   Blog:           
     - '/'
-    - { Categories All: '/blog/categories/' }
-    - { TIL: '/blog/categories/#til' }
-    - { Django: '/blog/categories/#django' }
+    # - { Categories All: '/blog/categories/' }
+    - { TIL: '/blog/categories/#TIL' }
+    - { Django: '/blog/categories/#Django' }
     - { Python: '/blog/categories/#python' }
-    - { Git: '/blog/categories/#git' }
+    - { web: '/blog/categories/#Web' }
+    - { Git: '/blog/categories/#Git' }
     - { etc: '/blog/categories/#etc' }    
   About:          
     - '/about/'
