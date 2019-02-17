@@ -65,7 +65,7 @@ category_page: '/blog/categories/'
 # Puglins
 mathjax: true # whether support mathjax
 google_analytics_token: 'UA-00000000-1' # leave blank if you don't want google analytics
-disqus_short_name: 'tothefullest08-github-io' # leave blank if you don't want disqus
+disqus_short_name: 'tothefulles08' # leave blank if you don't want disqus
 
 #Use the following plug-ins
 gems:
