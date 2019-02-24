@@ -48,6 +48,7 @@ nav:
     - { Python: '/blog/categories/#python' }
     - { Web: '/blog/categories/#Web' }
     - { Git: '/blog/categories/#Git' }
+    - { Algorithm: '/blog/categories/#Algorithm' }
     - { etc: '/blog/categories/#etc' }    
   About:          
     - '/about/'
