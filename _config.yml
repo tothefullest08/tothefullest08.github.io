@@ -1,6 +1,6 @@
 # Site Info
-title: '해리의 개발공부로그'
-tagline: '해리의 개발공부로그'
+title: 'Today I Learned'
+tagline: 'Today I Learned'
 description: '프로그래밍을 공부하며 배운점을 정리하고 기록하는 곳입니다'
 baseurl: ""
 url: https://tothefullest08.github.io/
@@ -25,7 +25,7 @@ version: 1.0.0
 
 # About/contact
 author:
-  name: LEE HYUN SOO
+  name: Harry
   description: Harry
   # gravatar: 3c2986ad7ac1f2230ea3596f44563328 # md5 hash of your email address
   contact:
