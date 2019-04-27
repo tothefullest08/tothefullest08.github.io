@@ -218,6 +218,7 @@ def new(request):
   - 이에 따라, views.py - new 함수 내 조건문에 따라 POST 방식에 대한 코드가 실행됨.
 
 ```html
+{% raw %}
 {% extends 'base.html' %}
 {% block container %}
     <form method="POST">
@@ -227,6 +228,7 @@ def new(request):
         <input type="submit" value="Submit"/>
     </form>
 {% endblock %}
+{% endraw %}
 ```
 
 
@@ -267,6 +269,7 @@ def edit(request, post_id):
 - edit.html
 
 ```html
+{% raw %}
 <-- edit.html -->
 {% extends 'base.html' %}
 {% block container %}
@@ -278,6 +281,7 @@ def edit(request, post_id):
         <input type="submit" value="Submit"/>
     </form>
 {% endblock %}
+{% endraw %}
 ```
 
 
@@ -318,6 +322,7 @@ def delete(request, post_id):
 - delete.html
 
 ```html
+{% raw %}
 <-- delete.html -->
 {% extends 'base.html' %}
 {% block container %}
@@ -329,4 +334,5 @@ def delete(request, post_id):
 </form>
 
 {% endblock %}
+{% endraw %}
 ```

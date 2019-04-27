@@ -69,7 +69,7 @@ urlpatterns = [
 
 <h1>New Aricle </h1>
 <form method="POST">
-    {% csrf_token %}
+    {% raw %}{% csrf_token %}{% endraw %}
     <input type="text" name="title" required/>
     <input type="text" name="content" required/>
     <input type="submit" value="Submit"/>
@@ -264,7 +264,7 @@ return render(request, 'form.html', {'form' : form})
 ```html
 <h1>New Aricle </h1>
 <form method="POST">
-    {% csrf_token %}
+    {% raw %}{% csrf_token %}{% endraw %}
     <!--<input type="text" name="title" required/>-->
     <!--<input type="text" name="content" required/>-->
     {{ form }}

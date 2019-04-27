@@ -87,7 +87,9 @@ TEMPLATES = [
 {% extends 'base.html' %}
 {% block container %}
     <h1>Post Index</h1>
+	{% raw %}
     <a href="{% url 'posts:new' %}">New - 새로운 글쓰기</a>
+	{% endraw %}
     <ul>
     {% for post in posts %}
         <li><a href="{% url 'posts:detail' post.pk %}">{{ post.title }}</a></li>    
@@ -101,15 +103,18 @@ TEMPLATES = [
 2. detail.html
 
 ```html
+{% raw %}
 {% extends 'base.html' %}
 {% block container %}
 
     <h1>Post Detail</h1>
     <h2>Title : {{post.title}}</h2>
     <p> Content : {{post.content}}</p>
+	
     <a href="{% url 'posts:list' %}">List</a>
     <a href="{% url 'posts:edit' post.pk %}">Edit</a>
     <a href="{% url 'posts:delete' post.pk %}">Delete</a>
+	
     
     <hr>
     <form action="{% url 'posts:comments_create' post.pk %}" method="post">
@@ -127,6 +132,7 @@ TEMPLATES = [
     </ul>
 
 {% endblock %}
+{% endraw %}
 ```
 
 
@@ -151,6 +157,7 @@ TEMPLATES = [
 4. new.html
 
 ```html
+{% raw %}
 {% extends 'base.html' %}
 {% block container %}
     <form method="post" enctype="multipart/form-data">
@@ -161,6 +168,7 @@ TEMPLATES = [
         <input type="submit" value="Submit"/>
     </form>
 {% endblock %}
+{% endraw %}
 ```
 
 

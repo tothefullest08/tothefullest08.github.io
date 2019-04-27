@@ -155,8 +155,10 @@ path('<int:post_id>/comments/create/', views.comments_create, name='comments_cre
     - **html문서 내에서는 `all()` 을 쓰지 않음을 유의하자.** 
 
 ```html
-    <form action="{% url 'posts:comments_create' post.pk %}" method="post">
-        {% csrf_token %}
+	{% raw %}    
+	<form action="{% url 'posts:comments_create' post.pk %}" method="post">
+    {% endraw %}
+        {% raw %}{% csrf_token %}{% endraw %}
         댓글 : <input type="text" name="content"/>
         	  <input type="submit" value="Submit"/>
     </form>
@@ -195,7 +197,10 @@ path('<int:post_id>/comments/<int:comment_id>/delete/', views.comments_delete, n
 <ul>
   {% for comment in post.comment_set.all %}
    <li> {{ comment.content }} - 
-    <a href="{% url 'posts:comments_delete' post.pk comment.pk %}">Delete</a>		    </li>
+    {% raw %}
+    <a href="{% url 'posts:comments_delete' post.pk comment.pk %}">Delete</a>
+    {% endraw %}
+    </li>
    {% endfor %}
 </ul>
 ```

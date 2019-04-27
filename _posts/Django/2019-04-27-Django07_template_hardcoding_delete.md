@@ -106,7 +106,9 @@ def create(request):
 > index.html 문서와 같이,  a태그에 연결되는 url주소를 입력한 경우도 있음.  url 매핑을 설정하는 기본적인 구조는 다음과 같음.
 >
 > ```python
+> {% raw %}
 > {% url '[app_name]:[설정된 name 값]' [동적 변수 명] %}
+> {% endraw %}
 > ```
 >
 > html문서 내에서는 동적으로 들어가는 변수에 대해서는 콤마가 아니라 띄워쓰기로 구분을 해줘야함.
@@ -139,8 +141,10 @@ def create(request):
 - 변경 후
 
 ```html
+{% raw %}
 <a href="{% url 'posts:new' %}">New - 새로운 글쓰기</a>
 <li><a href="{% url 'posts:detail' post.pk %}/">{{ post.title }}</a></li> 
+{% endraw %}
 ```
 
 
@@ -149,7 +153,7 @@ def create(request):
 
 ```html
 <form action="/posts/create/", method="post">
-    {% csrf_token %}
+    {% raw %}{% csrf_token %}{% endraw %}
     <input type="text" name="title"/>
     <input type="text" name="content"/>
     <input type="submit" value="Submit"/>
@@ -157,7 +161,9 @@ def create(request):
 ```
 
 ```html
+{% raw %}
 <form action="{% url 'posts:create' %}", method="post">
+{% endraw %}
 ```
 
 
@@ -174,9 +180,11 @@ def create(request):
 ```
 
 ```html
+{% raw %}
 <a href="{% url 'posts:list' %}">List</a>
 <a href="{% url 'posts:edit' post.pk %}">Edit</a>
 <a href="{% url 'posts:delete' post.pk %}">Delete</a>
+{% endraw %}
 ```
 
 
@@ -185,7 +193,7 @@ def create(request):
 
 ```html
 <form action="/posts/{{ post.pk }}/update/", method="post">
-    {% csrf_token %}
+    {% raw %}{% csrf_token %}{% endraw %}
     <input type="text" name="title" value="{{ post.title }}"/>
     <input type="text" name="content" value="{{ post.content }}"/>
     <input type="submit" value="Submit"/>
@@ -193,7 +201,9 @@ def create(request):
 ```
 
 ```html
+{% raw %}
 <form action="{% url 'posts:update' post.pk %}", method="post">
+{% endraw %}
 ```
 
 
@@ -286,7 +296,7 @@ urlpatterns = [
 <body>
     <h1>Post Edit</h1>
     <form action="/posts/{{ post.pk }}/update/", method="POST">
-        {% csrf_token %}
+        {% raw %}{% csrf_token %}{% endraw %}
         <input type="text" name="title" value="{{ post.title }}"/>
         <input type="text" name="content" value="{{ post.content }}"/>
         <input type="submit" value="Submit"/>
