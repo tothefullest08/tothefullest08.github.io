@@ -192,6 +192,7 @@ if request.method == 'POST':
 - `form.as_ul` : `ul & li ` 태그로 감싸서 출력 
 
 ```html
+{% raw %}
 {{ form.non_field_errors }}
 
 <form method="POST">
@@ -214,6 +215,7 @@ if request.method == 'POST':
     </div>
     <input type="submit" value="Submit"/>
 </form>
+{% endraw %}
 ```
 
 ​                                                                                                      
