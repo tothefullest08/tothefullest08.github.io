@@ -21,8 +21,8 @@ comments: true
 - 기본 템플릿은 웹사이트 내 모든 페이지에 확장되어 사용되는 가장 기본적인 템플릿임.
 - 프로젝트 폴더(이하, crud) 안에  templates 폴더 생성  - base. html 생성
 - 동적으로 바뀌는 부분을 아래의 양식 안에 정의
-  - `{% raw %}{% block container %}{% endraw %}`
-  - `{% raw %}{% endblock %}{% endraw %}`
+  - {% raw %}`{% block container %}`{% endraw %}
+  - {% raw %}`{% endblock %}`{% endraw %}
 
 ```html
 <!DOCTYPE html>
@@ -72,7 +72,7 @@ TEMPLATES = [
 
 ### 각 html 파일에 base.html 상속 받기
 
-- base.html을 기본으로 깔고, `{% block container %}/{% endblock %} ` 사이에 내용을넣으면 됨.
+- base.html을 기본으로 깔고, {% raw %}`{% block container %}/{% endblock %} ` {% endraw %}`{사이에 내용을넣으면 됨.
 - 기본 템플릿을 상속받기 위해 `{% extends 'base.html' %}` 을 우선 입력.
 
 1. index.html
@@ -104,9 +104,9 @@ TEMPLATES = [
     <h2>Title : {{post.title}}</h2>
     <p> Content : {{post.content}}</p>
 	
-    <a href="{% url 'posts:list' %}">List</a>
-    <a href="{% url 'posts:edit' post.pk %}">Edit</a>
-    <a href="{% url 'posts:delete' post.pk %}">Delete</a>
+    <a href="{% raw %}{% url 'posts:list' %}{% endraw %}">List</a>
+    <a href="{% raw %}{% url 'posts:edit' post.pk %}{% endraw %}">Edit</a>
+    <a href="{% raw %}{% url 'posts:delete' post.pk %}{% endraw %}">Delete</a>
 	
     
     <hr>
@@ -119,7 +119,7 @@ TEMPLATES = [
       {% for comment in post.comment_set.all %}
       <li> 
        {{ comment.content }} - 
-        <a href="{% url 'posts:comments_delete' post.pk comment.pk %}">Delete</a>
+        <a href="{% raw %}{% url 'posts:comments_delete' post.pk comment.pk %}{% endraw %}">Delete</a>
       </li>
       {% endfor %}
     </ul>
