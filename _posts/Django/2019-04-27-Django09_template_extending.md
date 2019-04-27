@@ -25,7 +25,6 @@ comments: true
   - `{% raw %}{% endblock %}{% endraw %}`
 
 ```html
-{% raw %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +40,6 @@ comments: true
     {% raw %}{% endblock %}{% endraw %}
 </body>
 </html>
-{% endraw %}
 ```
 
 
@@ -92,7 +90,6 @@ TEMPLATES = [
     {% endfor %}
     </ul>
 {% raw %}{% endblock %}{% endraw %}
-{% endraw %}
 ```
 
 
@@ -100,7 +97,6 @@ TEMPLATES = [
 2. detail.html
 
 ```html
-{% raw %}
 {% extends 'base.html' %}
 {% raw %}{% block container %}{% endraw %}
 
@@ -129,7 +125,6 @@ TEMPLATES = [
     </ul>
 
 {% raw %}{% endblock %}{% endraw %}
-{% endraw %}
 ```
 
 
@@ -137,7 +132,6 @@ TEMPLATES = [
 3. edit.html
 
 ```html
-{% raw %}
 {% extends 'base.html' %}
 {% raw %}{% block container %}{% endraw %}
     <h1>Post Edit</h1>
@@ -148,7 +142,6 @@ TEMPLATES = [
         <input type="submit" value="Submit"/>
     </form>
 {% raw %}{% endblock %}{% endraw %}
-{% endraw %}
 ```
 
 
@@ -156,7 +149,6 @@ TEMPLATES = [
 4. new.html
 
 ```html
-{% raw %}
 {% extends 'base.html' %}
 {% raw %}{% block container %}{% endraw %}
     <form method="post" enctype="multipart/form-data">
@@ -167,7 +159,6 @@ TEMPLATES = [
         <input type="submit" value="Submit"/>
     </form>
 {% raw %}{% endblock %}{% endraw %}
-{% endraw %}
 ```
 
 
