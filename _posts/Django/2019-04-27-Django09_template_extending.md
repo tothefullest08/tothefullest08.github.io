@@ -37,8 +37,8 @@ comments: true
 <body>
     <h1>여기는 base.html!</h1>
     <!--동적으로 바뀔 부분을 아래에 정의-->
-    {% block container %}
-    {% endblock %}
+    {% raw %}{% block container %}{% endraw %}
+    {% raw %}{% endblock %}{% endraw %}
 </body>
 </html>
 {% endraw %}
@@ -80,9 +80,8 @@ TEMPLATES = [
 1. index.html
 
 ```html
-{% raw %}
 {% extends 'base.html' %}
-{% block container %}
+{% raw %}{% block container %}{% endraw %}
     <h1>Post Index</h1>
 	{% raw %}
     <a href="{% url 'posts:new' %}">New - 새로운 글쓰기</a>
@@ -92,7 +91,7 @@ TEMPLATES = [
         <li><a href="{% url 'posts:detail' post.pk %}">{{ post.title }}</a></li>    
     {% endfor %}
     </ul>
-{% endblock %}
+{% raw %}{% endblock %}{% endraw %}
 {% endraw %}
 ```
 
@@ -103,7 +102,7 @@ TEMPLATES = [
 ```html
 {% raw %}
 {% extends 'base.html' %}
-{% block container %}
+{% raw %}{% block container %}{% endraw %}
 
     <h1>Post Detail</h1>
     <h2>Title : {{post.title}}</h2>
@@ -129,7 +128,7 @@ TEMPLATES = [
       {% endfor %}
     </ul>
 
-{% endblock %}
+{% raw %}{% endblock %}{% endraw %}
 {% endraw %}
 ```
 
@@ -140,7 +139,7 @@ TEMPLATES = [
 ```html
 {% raw %}
 {% extends 'base.html' %}
-{% block container %}
+{% raw %}{% block container %}{% endraw %}
     <h1>Post Edit</h1>
     <form method="post">
         {% csrf_token %}
@@ -148,7 +147,7 @@ TEMPLATES = [
         <input type="text" name="content" value="{{ post.content }}"/>
         <input type="submit" value="Submit"/>
     </form>
-{% endblock %}
+{% raw %}{% endblock %}{% endraw %}
 {% endraw %}
 ```
 
@@ -159,7 +158,7 @@ TEMPLATES = [
 ```html
 {% raw %}
 {% extends 'base.html' %}
-{% block container %}
+{% raw %}{% block container %}{% endraw %}
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <input type="text" name="title"/>
@@ -167,7 +166,7 @@ TEMPLATES = [
         <input type="file" name="image" accept="image/*"/>
         <input type="submit" value="Submit"/>
     </form>
-{% endblock %}
+{% raw %}{% endblock %}{% endraw %}
 {% endraw %}
 ```
 
