@@ -8,8 +8,6 @@ comments: true
 
 
 
-{% raw %}
-
 # REST API
 
 > HTTP URI(Uniform Resource Identifier)를 통해 자원(Resource)을 명시하고, HTTP Method(POST, GET, PUT, DELETE)를 통해 해당 자원에 대한 CRUD Operation을 적용하는 것을 의미
@@ -158,6 +156,7 @@ POST  /movies/2/edit		- 수정 작업을 수행함
   - 어떠한 요청의 방식이  `POST`이면, `update`안의 코드를 실행, 그렇지 않으면(`GET`일 경우), 글을 수정하는 폼이 있는 페이지를 보여주게끔, 구현 가능. 
 
 ```python
+{% raw %}
 urlpatterns = [
     #GET
     path('', views.index, name='list'), 
@@ -176,6 +175,7 @@ urlpatterns = [
     path('<int:post_id>/edit/', views.edit, name='edit'), 
     #path('<int:post_id>/update/', views.update, name='update'),
 ]
+{% endraw %}
 ```
 
 
@@ -191,6 +191,7 @@ urlpatterns = [
   - create 함수는 삭제 가능
 
 ```python
+{% raw %}
 def new(request):
     if request.method == 'POST':
         #create
@@ -206,6 +207,7 @@ def new(request):
     else:
         #new
         return render(request, 'new.html')
+{% endraw %}
 ```
 
 
@@ -248,6 +250,7 @@ def new(request):
 - views.py
 
 ```python
+{% raw %}
 #views.py
 def edit(request, post_id):
     post = Post.objects.get(pk=post_id)
@@ -262,6 +265,7 @@ def edit(request, post_id):
     else:
         #edit
         return render(request, 'edit.html', {'post':post})
+{% endraw %}
 ```
 
 
@@ -298,8 +302,10 @@ def edit(request, post_id):
 - urls.py
 
 ```python
+{% raw %}
 #GET(conifrm) POST(delete)
 path('<int:post_id>/delete/', views.delete, name='delete'), 
+{% endraw %}
 ```
 
 
@@ -307,6 +313,7 @@ path('<int:post_id>/delete/', views.delete, name='delete'),
 - views.py
 
 ```python
+{% raw %}
 def delete(request, post_id):
     if request.method == 'POST':
         post = Post.objects.get(pk=post_id)
@@ -315,6 +322,7 @@ def delete(request, post_id):
     
     else:
         return render(request, 'delete.html')
+{% endraw %}
 ```
 
 
@@ -337,8 +345,3 @@ def delete(request, post_id):
 {% endraw %}
 ```
 
-
-
-{% endraw %}
-
-# 
