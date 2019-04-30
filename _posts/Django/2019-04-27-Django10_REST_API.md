@@ -215,7 +215,7 @@ def new(request):
 - new.html 
 
   - 동일한 URI를 사용하므로 create 함수를 실행시키는 URL를 작성하였던 action 속성을 삭제
-    - cf) `action="{% url 'posts:create' %}"`
+    - cf){% raw %} `action="{% url 'posts:create' %}"`{% endraw %}
   - `form` 태그에 `action` 속성값이 존재 하지 않을 경우, 자기자신에게 요청을 보냄.
   - 이에 따라, views.py - new 함수 내 조건문에 따라 POST 방식에 대한 코드가 실행됨.
 
