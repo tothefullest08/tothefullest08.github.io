@@ -78,7 +78,7 @@ TEMPLATES = [
 1. index.html
 
 ```html
-{% extends 'base.html' %}
+{% raw %}{% extends 'base.html' %}{% endraw %}
 {% raw %}{% block container %}{% endraw %}
     <h1>Post Index</h1>
 	{% raw %}
@@ -86,7 +86,10 @@ TEMPLATES = [
 	{% endraw %}
     <ul>
     {% for post in posts %}
-        <li><a href="{% url 'posts:detail' post.pk %}">{{ post.title }}</a></li>    
+        <li>
+        {% raw %}<a href="{% url 'posts:detail' post.pk %}">{{ post.title }}
+        {% endraw %}    
+        </a></li>    
     {% endfor %}
     </ul>
 {% raw %}{% endblock %}{% endraw %}
@@ -97,7 +100,7 @@ TEMPLATES = [
 2. detail.html
 
 ```html
-{% extends 'base.html' %}
+{% raw %}{% extends 'base.html' %}{% endraw %}
 {% raw %}{% block container %}{% endraw %}
 
     <h1>Post Detail</h1>
@@ -110,8 +113,10 @@ TEMPLATES = [
 	
     
     <hr>
-    <form action="{% url 'posts:comments_create' post.pk %}" method="post">
-        {% csrf_token %}
+    {% raw %}
+	<form action="{% url 'posts:comments_create' post.pk %}" method="post">
+    {% endraw %}
+        {% raw %}{% csrf_token %}{% endraw %}
         댓글 : <input type="text" name="content"/>
         	   <input type="submit" value="Submit"/>
     </form>
@@ -132,11 +137,11 @@ TEMPLATES = [
 3. edit.html
 
 ```html
-{% extends 'base.html' %}
+{% raw %}{% extends 'base.html' %}{% endraw %}
 {% raw %}{% block container %}{% endraw %}
     <h1>Post Edit</h1>
     <form method="post">
-        {% csrf_token %}
+        {% raw %}{% csrf_token %}{% endraw %}
         <input type="text" name="title" value="{{ post.title }}"/>
         <input type="text" name="content" value="{{ post.content }}"/>
         <input type="submit" value="Submit"/>
@@ -149,10 +154,10 @@ TEMPLATES = [
 4. new.html
 
 ```html
-{% extends 'base.html' %}
+{% raw %}{% extends 'base.html' %}{% endraw %}
 {% raw %}{% block container %}{% endraw %}
     <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
+        {% raw %}{% csrf_token %}{% endraw %}
         <input type="text" name="title"/>
         <input type="text" name="content"/>
         <input type="file" name="image" accept="image/*"/>
