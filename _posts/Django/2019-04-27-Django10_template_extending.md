@@ -81,12 +81,12 @@ TEMPLATES = [
     <h1>Post Index</h1>
     {% raw %}<a href="{% url 'posts:new' %}">New - 새로운 글쓰기</a>{% endraw %}
     <ul>
-    {% raw %}{% for post in posts %}
+    {% raw %}{% for post in posts %}{% endraw %}
         <li>
         {% raw %}<a href="{% url 'posts:detail' post.pk %}">{{ post.title }}
         {% endraw %}    
         </a></li>    
-    {% endfor %}{% endraw %}
+     {% raw %}{% endfor %}{% endraw %}
     </ul>
 {% raw %}{% endblock %}{% endraw %}
 ```
@@ -115,12 +115,12 @@ TEMPLATES = [
 			   <input type="submit" value="Submit"/>
     </form>
     <ul>
-      {% raw %}{% for comment in post.comment_set.all %}
+      {% raw %}{% for comment in post.comment_set.all %}{% endraw %}
       <li> 
        {{ comment.content }} - 
         <a href="{% raw %}{% url 'posts:comments_delete' post.pk comment.pk %}{% endraw %}">Delete</a>
       </li>
-      {% endfor %}{% endraw %}
+      {% raw %}{% endfor %}{% endraw %}
     </ul>
 
 {% raw %}{% endblock %}{% endraw %}
