@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Django 11 - Django Form
+title: Django 12 - Django Form
 category: Django
 tags: [Django]
 comments: true

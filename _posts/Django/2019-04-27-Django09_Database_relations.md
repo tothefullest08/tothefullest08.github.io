@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Django 08 - 1:N 관계 설정 / 댓글 기능 구현
+title: Django 09 - 1:N 관계 설정 / 댓글 기능 구현
 category: Django
 tags: [Django]
 comments: true

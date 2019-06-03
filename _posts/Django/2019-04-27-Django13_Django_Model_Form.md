@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Django 12 - Django Model Form
+title: Django 13 - Django Model Form
 category: Django
 tags: [Django]
 comments: true

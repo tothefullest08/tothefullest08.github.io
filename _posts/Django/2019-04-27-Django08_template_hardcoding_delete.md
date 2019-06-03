@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Django 07 - Template 에서 하드코딩된 URL 을 제거하기
+title: Django 08 - Template 에서 하드코딩된 URL 을 제거하기
 category: Django
 tags: [Django]
 comments: true

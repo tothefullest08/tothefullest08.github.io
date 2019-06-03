@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Django 10 - REST API
+title: Django 11 - REST API
 category: Django
 tags: [Django]
 comments: true

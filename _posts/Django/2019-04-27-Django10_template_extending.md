@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Django 09 - 템플릿 확장 및 상속
+title: Django 10 - 템플릿 확장 및 상속
 category: Django
 tags: [Django]
 comments: true
