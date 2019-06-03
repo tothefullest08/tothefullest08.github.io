@@ -116,6 +116,8 @@ class PostForm(forms.ModelForm):
 
 
 
+<br>
+
 # 2. Django에 Bootstrap 입히기
 
 ### django-bootstrap4 설치

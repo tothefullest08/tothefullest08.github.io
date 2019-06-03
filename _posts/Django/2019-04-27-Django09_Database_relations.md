@@ -156,6 +156,7 @@ path('<int:post_id>/comments/create/', views.comments_create, name='comments_cre
 ### Django 내 댓글 삭제 기능 구현
 
 - 게시글의 정보와 댓글의 정보가 둘다 필요하므로, variable routing으로  `post_id` 와 `comment_id` 를 둘다 넘겨 줘야함. 
+
 ```python
 #views.py
 def comments_delete(request, post_id, comment_id):
@@ -169,8 +170,8 @@ path('<int:post_id>/comments/<int:comment_id>/delete/', views.comments_delete, n
 ```
 
 
-
 - form 태그와 input 태그등을 적절히 사용하여, 댓글을 삭제하는 내용이 정의된  `comment_delete` 함수를 호출하기 위한 url 주소를 지정한다.
+
 ```html
 <-- detail.html -->    
 <ul>
