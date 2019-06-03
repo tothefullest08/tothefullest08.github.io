@@ -10,8 +10,7 @@ comments: true
 
 # Django Form
 
-> Django 를 사용하기 위한 기본적인 설정하기
->
+> Django 를 사용하기 위한 기본적인 설정.
 > 가상환경 설정 / 장고 설치 / 프로젝트 & 어플리케이션 생성 / 
 > settings.py 설정 / urls.py 설정 / models.py 설정 / migrate 설정
 
@@ -79,7 +78,7 @@ urlpatterns = [
 
 
 - views.py 내 `create` 함수 재설정
-  - `Article.objects.create(title=title, content=content)  ` :  데이터베이스에  input값 저장
+  - `Article.objects.create(title=title, content=content) `  :  데이터베이스에  input값 저장
 
 ```python
 from django.shortcuts import render, redirect
@@ -169,9 +168,8 @@ class ArticleForm(forms.Form):
 
 - `content` 필드의 경우, 
 
-  1) 모델 클래스 `Article` : `TextField`  사용
-
-  2) 폼 클래스 `ArticleForm` : `CharField` 사용함 (폼에서는 `TextField`가 없음) => `widget` 사용
+  > 1) 모델 클래스 `Article` : `TextField`  사용
+  > 2) 폼 클래스 `ArticleForm` : `CharField` 사용함 (폼에서는 `TextField`가 없음) => `widget` 사용
 
   - `widget` 의 속성을  `forms.Textarea` 문법을 사용하여  textarea로 변경
   - textarea의 속성은 괄호안에 사용 `attrs={}` . 일반적으로 textarea 태그 내 작성하는 속성을  `attrs` 라는 딕셔너리로 넘겨주면 속성을 적용할 수 있음.
@@ -246,7 +244,6 @@ if form.is_valid():
 
 
 - 데이터가 유효성 검증에 실패할 경우, `if form.is_valid():` 조건문에 들어가지 않으며, 조건문에서 최종적으로 벗어남. 기본폼 생성하는 `create.html` 으로 돌려주기 위해, `return`값을 `else` 문 아래가 아니라 내어쓰기로 조건문 밖으로 빼줌.
-
   (else에 적용되는 경우와 유효성 검증에 실패하는 경우를 만족시키기 위해)
 
 ```python

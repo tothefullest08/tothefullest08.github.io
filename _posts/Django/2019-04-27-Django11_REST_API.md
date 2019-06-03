@@ -15,7 +15,6 @@ comments: true
 ### Reference
 
 > 본 포스팅은 아래 링크의 내용을 참조하여 작성하였습니다.
->
 > https://meetup.toast.com/posts/92
 > <https://ko.wikipedia.org/wiki/REST>
 > [http://blog.remotty.com/blog/2014/01/28/lets-study-rest/](https://blog.remotty.com/blog/2014/01/28/lets-study-rest/)
@@ -33,18 +32,15 @@ REST는 Representational State Transfer라는 용어의 약자로서 2000년도�
 ### REST 구성
 
 - **자원(RESOURCE)** - URI
-
   모든 자원에 고유한 ID가 존재하고, 이 자원은 Server에 존재한다.
   자원을 구별하는 ID는 ‘/groups/:group_id’와 같은 HTTP URI 다.
   Client는 URI를 이용해서 자원을 지정하고 해당 자원의 상태(정보)에 대한 조작을 Server에 요청한다.
 
 - **행위(Verb)** - HTTP METHOD
-
   HTTP 프로토콜의 Method를 사용한다.
   HTTP 프로토콜은 GET, POST, PUT, DELETE 와 같은 메서드를 제공한다.
 
 - **표현(Representations)**
-
   Client가 자원의 상태(정보)에 대한 조작을 요청하면 Server는 이에 적절한 응답(Representation)을 보낸다.
   REST에서 하나의 자원은 JSON, XML, TEXT, RSS 등 여러 형태의 Representation으로 나타내어 질 수 있다.
   JSON 혹은 XML를 통해 데이터를 주고 받는 것이 일반적이다.
@@ -54,13 +50,9 @@ REST는 Representational State Transfer라는 용어의 약자로서 2000년도�
 ### REST API 디자인 가이드
 
 REST API 설계 시 가장 중요한 항목은 다음의 2가지로 요약할 수 있습니다.
-
-**첫 번째,** URI는 정보의 자원을 표현해야 한다.
+**첫 번째,** URI는 정보의 자원을 표현해야 한다.<br>
 **두 번째,** 자원에 대한 행위는 HTTP Method(GET, POST, PUT, DELETE)로 표현한다.
-
 다른 것은 다 잊어도 위 내용은 꼭 기억하시길 바랍니다.
-
-
 
 ### REST API 중심 규칙
 
@@ -147,17 +139,16 @@ POST  /movies/2/edit		- 수정 작업을 수행함
 
 - 리스트 페이지는 GET 방식으로 모든 포스트를 다가져오므로 그대로 유지
 - 게시글 생성의 경우,  
-  - `‘new/’ `는  `GET`을 통해 해당 리소스(URI)를 조회함. 해당 다큐멘트에 대한 자세한 정보(새글을 작성하는 폼)를 가져옴. (새로운 페이지를 가져옴. `GET`에 적합)
+  - `‘new/’`는  `GET`을 통해 해당 리소스(URI)를 조회함. 해당 다큐멘트에 대한 자세한 정보(새글을 작성하는 폼)를 가져옴. (새로운 페이지를 가져옴. `GET`에 적합)
   - `‘create/’`의 경우, 새글을 작성(새로운 리소스 생성)하므로 `POST`방식에 맞음. 그런데, create라는 동사를 URL에 포함시키는것은 `REST Architecture`에 적합하지 않으므로 수정이 필요
-  -  `'new/' `   `URI` 를 기반으로, `GET/POST` 방식에 따라, 다른 코드가 적용되게 views.py  내용을 수정
+  -  `'new/'`   URI 를 기반으로, `GET/POST` 방식에 따라, 다른 코드가 적용되게 views.py  내용을 수정
   - 어떠한 요청의 방식이  `POST`이면, `CREATE `안의 코드를 실행, 그렇지 않으면(`GET`일 경우), 새글 작성하는 폼이 있는 페이지를 보여주게끔, 구현 가능. 
   - `create/` 함수는 삭제 가능
 - 동일한 방법으로 edit & update 또한 수정이 가능함
   - 어떠한 요청의 방식이  `POST`이면, `update`안의 코드를 실행, 그렇지 않으면(`GET`일 경우), 글을 수정하는 폼이 있는 페이지를 보여주게끔, 구현 가능. 
 
 ```python
-{% raw %}
-urlpatterns = [
+{% raw %}urlpatterns = [
     #GET
     path('', views.index, name='list'), 
     
@@ -174,15 +165,14 @@ urlpatterns = [
     #GET(edit), POST(update)
     path('<int:post_id>/edit/', views.edit, name='edit'), 
     #path('<int:post_id>/update/', views.update, name='update'),
-]
-{% endraw %}
+]{% endraw %}
 ```
 
 
 
 ### New/Create 수정
 
->  `'new/' `   `URI` (리소스)를 기반으로, `GET/POST` 방식에 따라, 다른 코드가 적용되게 views.py  내용을 수정.
+>  `'new/'`   URI (리소스)를 기반으로, `GET/POST` 방식에 따라, 다른 코드가 적용되게 views.py  내용을 수정.
 >
 > 어떠한  요청의 방식이  `POST`이면, `CREATE `안의 코드를 실행, 그렇지 않으면(`GET`일 경우), 새글 작성하는 폼이 있는 페이지를 보여주게 코드 수정.
 
@@ -191,8 +181,7 @@ urlpatterns = [
   - create 함수는 삭제 가능
 
 ```python
-{% raw %}
-def new(request):
+{% raw %}def new(request):
     if request.method == 'POST':
         #create
         title = request.POST.get('title')
@@ -206,8 +195,7 @@ def new(request):
     
     else:
         #new
-        return render(request, 'new.html')
-{% endraw %}
+        return render(request, 'new.html'){% endraw %}
 ```
 
 
@@ -220,8 +208,7 @@ def new(request):
   - 이에 따라, views.py - new 함수 내 조건문에 따라 POST 방식에 대한 코드가 실행됨.
 
 ```html
-{% raw %}
-{% extends 'base.html' %}
+{% raw %}{% extends 'base.html' %}
 {% block container %}
     <form method="POST">
         {% csrf_token %}
@@ -229,8 +216,7 @@ def new(request):
         <input type="text" name="content"/>
         <input type="submit" value="Submit"/>
     </form>
-{% endblock %}
-{% endraw %}
+{% endblock %}{% endraw %}
 ```
 
 
@@ -244,14 +230,11 @@ def new(request):
 
 
 ### Edit & Update 수정
-
 > 같은 방법으로,  `edit` & `update.html`에 대한 `urlpattern` & `views.py` 내용도 수정 가능.
-
 - views.py
 
 ```python
-{% raw %}
-#views.py
+{% raw %}#views.py
 def edit(request, post_id):
     post = Post.objects.get(pk=post_id)
     
@@ -264,8 +247,7 @@ def edit(request, post_id):
     
     else:
         #edit
-        return render(request, 'edit.html', {'post':post})
-{% endraw %}
+        return render(request, 'edit.html', {'post':post}){% endraw %}
 ```
 
 
@@ -273,8 +255,7 @@ def edit(request, post_id):
 - edit.html
 
 ```html
-{% raw %}
-<-- edit.html -->
+{% raw %}<-- edit.html -->
 {% extends 'base.html' %}
 {% block container %}
     <h1>Post Edit</h1>
@@ -284,8 +265,7 @@ def edit(request, post_id):
         <input type="text" name="content" value="{{ post.content }}"/>
         <input type="submit" value="Submit"/>
     </form>
-{% endblock %}
-{% endraw %}
+{% endblock %}{% endraw %}
 ```
 
 
@@ -293,7 +273,6 @@ def edit(request, post_id):
 ### Delete.html 생성 
 
 > 장고에는 HTTP Method 중 하나인 `delete`를 지원하지 않기 때문에, `GET`과``POST`  메서드를 통해 대안으로 구현할 수 있음.
->
 > - GET: 삭제에 대한 Confirm  유무를 보여주는 URI(리소스)를 조회함
 > - POST:  Delete 실행
 
@@ -302,10 +281,8 @@ def edit(request, post_id):
 - urls.py
 
 ```python
-{% raw %}
-#GET(conifrm) POST(delete)
-path('<int:post_id>/delete/', views.delete, name='delete'), 
-{% endraw %}
+{% raw %}#GET(conifrm) POST(delete)
+path('<int:post_id>/delete/', views.delete, name='delete'), {% endraw %}
 ```
 
 
@@ -313,16 +290,14 @@ path('<int:post_id>/delete/', views.delete, name='delete'),
 - views.py
 
 ```python
-{% raw %}
-def delete(request, post_id):
+{% raw %}def delete(request, post_id):
     if request.method == 'POST':
         post = Post.objects.get(pk=post_id)
         post.delete()
         return redirect('posts:list')
     
     else:
-        return render(request, 'delete.html')
-{% endraw %}
+        return render(request, 'delete.html'){% endraw %}
 ```
 
 
@@ -330,9 +305,8 @@ def delete(request, post_id):
 - delete.html
 
 ```html
-{% raw %}
 <-- delete.html -->
-{% extends 'base.html' %}
+{% raw %}{% extends 'base.html' %}
 {% block container %}
 
 <h1>정말로 삭제하겠읍니까?</h1>
@@ -341,7 +315,6 @@ def delete(request, post_id):
     <input type="submit" value="삭제"/>
 </form>
 
-{% endblock %}
-{% endraw %}
+{% endblock %}{% endraw %}
 ```
 

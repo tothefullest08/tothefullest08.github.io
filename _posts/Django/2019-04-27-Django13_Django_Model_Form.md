@@ -29,8 +29,7 @@ class ArticleModelForm(forms.ModelForm):
     class Meta:
         model = Article
         fields = ['title', 'content']        
-        #cf) fields = '__all__'  => 모든 필드를 가져오겠다는 의미.
-        
+        #cf) fields = '__all__'  => 모든 필드를 가져오겠다는 의미. 
         
 #models.py
 class Article(models.Model):
@@ -84,9 +83,12 @@ class ArticleModelForm(forms.ModelForm):
 
 
 
+<br>
+
 # Form vs Model Form
 
 **모델 폼과 폼의 가장 핵심적인 차이점은 모델(모델 클래스)과의 연동 유무임.**
+
 - 폼은 모델과 연동이 되어있지 않기 때문에, `request.POST` 로 들어오는 `input` 에 대한 정보를 선별하여 각 변수에 저장하고 DB에 생성 및 저장을 해야함.
 - 그러나, 모델 폼의 경우, 모델과 연동이 되어있기 때문의 위의 과정을 거칠 필요 없이 DB에 저장만 하면됨.
 
@@ -102,7 +104,7 @@ if request.method == 'POST':
         return redirect('articles:detail', article.pk)
     ...
 
-#Model Form 클래스
+#ModelForm 클래스
 if request.method == 'POST':
     form = ArticleModelForm(request.POST)
 	
@@ -181,7 +183,7 @@ if request.method == 'POST':
 - `form` 은 모델폼의 인스턴스로, 용도에 따라 아래와 같이 view에 정의되어있음
   - `ArticleModelForm()`  : Create 실행 시
   - `ArticleModelForm(instance=article)`  : update 실행 시
-- `{{ form }}`  으로 접근할 경우. 모든 input 값이 뭉쳐져있어서,  세부적인 커스터마이징에 어려움이 있음.
+- `{% raw %}{{ form }}{% endraw %}`  으로 접근할 경우. 모든 input 값이 뭉쳐져있어서,  세부적인 커스터마이징에 어려움이 있음.
 - 뭉쳐진 form을 세분화 시키는 방법을 폼 인스턴스에서 제공함
   - `form.non_field_errors` : 필드에 국한되지 않은 포괄적인 전체 에러를 보여줄 때 설정
   - `form.title.errors` : title 필드의 error 메세지 표시
@@ -192,8 +194,7 @@ if request.method == 'POST':
 - `form.as_ul` : `ul & li ` 태그로 감싸서 출력 
 
 ```html
-{% raw %}
-{{ form.non_field_errors }}
+{% raw %}{{ form.non_field_errors }}
 
 <form method="POST">
     {% csrf_token %}
@@ -214,8 +215,7 @@ if request.method == 'POST':
         {{ form.content }}
     </div>
     <input type="submit" value="Submit"/>
-</form>
-{% endraw %}
+</form>{% endraw %}
 ```
 
 ​                                                                                                      

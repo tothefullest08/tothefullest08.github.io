@@ -12,7 +12,7 @@ comments: true
 
 # 템플릿 확장 및 상속
 
-> templates 폴더 안의 html 파일을 살펴보면, 많은 부분 (특히, head)의 코드가 중복되고 있음을 알 수 있음.
+> templates 내 html 파일을 살펴보면, 많은 부분 (특히, head)의 코드가 중복되고 있음을 알 수 있음.
 >
 > 템플릿 확장(template extending)을 통해 웹사이트 안의 서로 다른 페이지에서 HTML의 일부를 동일하게 재사용 할 수 있게 됨. 이 방법을 사용하면 동일한 정보/레이아웃을 사용하고자 할 때, 모든 파일마다 같은 내용을 반복해서 입력 할 필요가 없게 됨.
 
@@ -21,8 +21,8 @@ comments: true
 - 기본 템플릿은 웹사이트 내 모든 페이지에 확장되어 사용되는 가장 기본적인 템플릿임.
 - 프로젝트 폴더(이하, crud) 안에  templates 폴더 생성  - base. html 생성
 - 동적으로 바뀌는 부분을 아래의 양식 안에 정의
-  - {% raw %}{% block container %}`{% endraw %}
-  - {% raw %}{% endblock %}`{% endraw %}
+  - {% raw %}{% block container %}{% endraw %}
+  - {% raw %}{% endblock %}{% endraw %}
 
 ```html
 <!DOCTYPE html>
@@ -41,8 +41,6 @@ comments: true
 </body>
 </html>
 ```
-
-
 
 - settings.py 내 기본 템플릿 경로 설정
 - `'DIRS': [os.path.join(BASE_DIR, 'crud','templates')],`
@@ -81,16 +79,14 @@ TEMPLATES = [
 {% raw %}{% extends 'base.html' %}{% endraw %}
 {% raw %}{% block container %}{% endraw %}
     <h1>Post Index</h1>
-	{% raw %}
-    <a href="{% url 'posts:new' %}">New - 새로운 글쓰기</a>
-	{% endraw %}
+    {% raw %}<a href="{% url 'posts:new' %}">New - 새로운 글쓰기</a>{% endraw %}
     <ul>
-    {% for post in posts %}
+    {% raw %}{% for post in posts %}
         <li>
         {% raw %}<a href="{% url 'posts:detail' post.pk %}">{{ post.title }}
         {% endraw %}    
         </a></li>    
-    {% endfor %}
+    {% endfor %}{% endraw %}
     </ul>
 {% raw %}{% endblock %}{% endraw %}
 ```
@@ -113,20 +109,18 @@ TEMPLATES = [
 	
     
     <hr>
-    {% raw %}
-	<form action="{% url 'posts:comments_create' post.pk %}" method="post">
-    {% endraw %}
+	{% raw %}<form action="{% url 'posts:comments_create' post.pk %}" method="post">{% endraw %}
         {% raw %}{% csrf_token %}{% endraw %}
         댓글 : <input type="text" name="content"/>
-        	   <input type="submit" value="Submit"/>
+			   <input type="submit" value="Submit"/>
     </form>
     <ul>
-      {% for comment in post.comment_set.all %}
+      {% raw %}{% for comment in post.comment_set.all %}
       <li> 
        {{ comment.content }} - 
         <a href="{% raw %}{% url 'posts:comments_delete' post.pk comment.pk %}{% endraw %}">Delete</a>
       </li>
-      {% endfor %}
+      {% endfor %}{% endraw %}
     </ul>
 
 {% raw %}{% endblock %}{% endraw %}

@@ -19,7 +19,7 @@ comments: true
 - `python manage.py startapp posts`
 - `settings.py`  내 `INSTALLED_APPS`  & `ALLOWED_HOSTS` 설정
 
-```PYTHON
+```python
 INSTALLED_APPS = [
     'posts',
     #'posts.apps.PostsConfig',]
@@ -135,7 +135,7 @@ INSTALLED_APPS = [
 
 - {% raw %}`{% load bootstrap4 %}` {% endraw %} 을 템플릿 상속을 위한 코드 사이에 넣어줘야 함.
 - {% raw %}`{% bootstrap_form 템플릿 변수 %}` {% endraw %}: 부트스트랩을 적용한 템플릿 변수 양식
-  - cf) `{{ 템플릿 변수 }}` : 기본 방식
+  - cf) {% raw %}`{{ 템플릿 변수 }}` {% endraw %}: 기본 방식
 
 ```html
 {% raw %}{% extends 'base.html' %}{% endraw %}
@@ -145,7 +145,7 @@ INSTALLED_APPS = [
 
 <form method="post">
     {% raw %}{% csrf_token %}{% endraw %}
-     <!-- 기본방식 {{ post_form }}-->
+     <!-- 기본방식 {% raw %}{{ post_form }}{% endraw %}-->
      <!-- 부트스트랩 클래스 이용 -->
     {% raw %}{% bootstrap_form post_form %}{% endraw %}
     <input type="submit" value="Submit"/>
