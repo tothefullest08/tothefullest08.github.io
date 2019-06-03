@@ -145,9 +145,9 @@ path('<int:post_id>/comments/create/', views.comments_create, name='comments_cre
     	</form>
 
     <ul>
-        {% raw %}{% for comment in post.comment_set.all %}
+        {% raw %}{% for comment in post.comment_set.all %}{% endraw %}
         <li> {{ comment.content }} </li>
-        {% endfor %}{% endraw %}
+        {% raw %}{% endfor %}{% endraw %}
     </ul>
 ```
 
@@ -174,11 +174,11 @@ path('<int:post_id>/comments/<int:comment_id>/delete/', views.comments_delete, n
 ```html
 <-- detail.html -->    
 <ul>
-  {% raw %}{% for comment in post.comment_set.all %}
+  {% raw %}{% for comment in post.comment_set.all %}{% endraw %}
    <li> {{ comment.content }} - 
     {% raw %}<a href="{% url 'posts:comments_delete' post.pk comment.pk %}">Delete</a>{% endraw %}
     </li>
-   {% endfor %}{% endraw %}
+   {% raw %}{% endfor %}{% endraw %}
 </ul>
 ```
 
