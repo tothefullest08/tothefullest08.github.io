@@ -8,12 +8,6 @@ comments: true
 
 
 
-# 사용자 권한 관리
-
-
-
-
-
 # 미디어 파일 관리 및 업로드 구현
 
 ### Models.py 수정
@@ -96,7 +90,7 @@ class Post(models.Model):
 
 ```
 
-- [reference][https://docs.djangoproject.com/ko/2.2/ref/models/fields/#filefield]
+- [reference](https://docs.djangoproject.com/ko/2.2/ref/models/fields/#filefield)
 
 > `upload_to` may also be a callable, such as a function. This will be called to obtain the upload path, including the filename. This callable must accept two arguments and return a Unix-style path (with forward slashes) to be passed along to the storage system. The two arguments are:
 >
