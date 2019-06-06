@@ -15,7 +15,7 @@ comments: true
 - `pyenv virtualenv 3.6.7 06_venv`
 - `pyenv local 06_venv`
 - `pip install django==2.1.8` : django 버전 설정
-- `django-admin startproject insta`
+- `django-admin startproject insta .`
 - `python manage.py startapp posts`
 - `settings.py`  내 `INSTALLED_APPS`  & `ALLOWED_HOSTS` 설정
 
@@ -235,6 +235,7 @@ def list(request):
   - 재사용성을 위해 파일을 분리시킴
   - 파일의 제목은 반드시 `_` 로 시작할 필요는 없으나, `_`를 사용하는 것이 통상적인 룰.
   - 어플리케이션 폴더 - 템플릿 폴더 내 `_post.html` 파일 생성 후 코드 작성
+  - bootstrap - card를 사용
 
 ```html
 <div class="card" style="width: 18rem;">
@@ -305,5 +306,40 @@ def delete(request, post_id):
 ```
 
 
+
+### 4) update
+
+- urls.py
+
+```python
+urlpatterns = [
+    path('<int:post_id>/like/', views.like, name='like'),
+]
+```
+
+- views.py
+  - create.html 을 그대로 사용
+
+```python
+def update(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    
+    if request.method == 'POST':
+        postform = Postform(request.POST, instance=post)
+        if postform.is_valid():
+            postform.save()
+            return redirect('posts:detail', post_id)
+    
+    else:
+        postform = Postform(instance=post)
+        return render(request, 'posts/create.html', {'postform':postform})
+```
+
+- _post.html
+  - 장고 템플릿 사용하여 수정 링크 추가
+
+```html
+{% raw %}<a href="{% url 'posts:update' post.id %}" class="btn btn-info">Update</a>{% endraw %}
+```
 
  

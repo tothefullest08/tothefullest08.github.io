@@ -14,6 +14,7 @@ comments: true
 
 - 이미지 업로드를 위한 필드 추가.  
 - 빈값을 넣어도 되는 옵션인 `blank=True` 추가
+- `pip install pillow` 설치
 
 ```python
 class Post(models.Model):
@@ -27,7 +28,7 @@ class Post(models.Model):
 
 기존의 ImageField를 그대로 사용할 경우,  이미지 크기를 수정하거나,  저장 확장자 설정 등 이미지 가공에 많은 제약이 있음. 이에, 외부 라이브러리를 사용하여 이미지를 적절하게 재가공할 수 있음
 
-- `pip install pillow` , `pip install pilkit` & `pip install django-imagekit` 설치
+- `pip install pilkit` & `pip install django-imagekit` 설치
 - settings.py 내 INSTALLED_APPS 내에 앱 추가
 
 ```python
@@ -160,7 +161,7 @@ class PostForm(forms.ModelForm):
 ```python
 #Media
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.joion(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 ```
 
 

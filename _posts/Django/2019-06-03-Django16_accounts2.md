@@ -104,7 +104,7 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def create(request):
     if request.method == 'POST':
-        post_form = PostForm(request.POST, request.FILES)
+        post_form = PostForm(request.POST)
         
         if post_form.is_valid():
             post_form.save()
