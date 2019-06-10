@@ -230,7 +230,7 @@ class CommentForm(forms.ModelForm):
 
 ```html
 {% raw %}{% if user.is_authenticated %}{% endraw %} 
-<form action="{% url 'posts:comment_create' post.id %}" method="POST">
+<form action="{% raw %}{% url 'posts:comment_create' post.id %}{% endraw %}" method="POST">
     {% raw %}{% csrf_token %}{% endraw %} 
     <div class="input-group">
         {% raw %}{{ comment_form }}{% endraw %} 
