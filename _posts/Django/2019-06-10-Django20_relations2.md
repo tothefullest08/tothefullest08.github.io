@@ -151,6 +151,6 @@ urlpatterns = [
 _post.html 에 각 게시글마다 게시글에 대한 유저정보가 뜨도록 코드를 작성해놓았음 (Django18 - 게시글에 유저정보 표시하기 참조). 유저정보는 `post.user.username` 을 통해 표시되어있으며, 이를 활용하여 개인 페이지로 들어가는 링크와 연결 시킬 수 있음
 
 ```html
-<strong>게시글 작성자: <a href="{% url 'accounts:people' post.user.username %}">{{ post.user.username }}</strong></a>
+<strong>게시글 작성자: <a href="{% raw %}{% url 'accounts:people' post.user.username %}{% endraw %}">{{ post.user.username }}</strong></a>
 ```
 
