@@ -154,17 +154,15 @@ def list(request):
 
 - 댓글 정보 및 생성기능을 실제로 브라우져에 나타내기 위한 코드를 `_post.html` 에 작성
 - urls.py 에 작성된 url 경로에 따라 함수가 실행될 수 있도록 form 태그 및 action 속성 경로 설정
-  - `{% if user.is_authenticated %}` 을 사용하여 로그인이 된 경우만 댓글생성이 보이도록 함.
-
+  - {% raw %}`{% if user.is_authenticated %}`{% endraw %} 을 사용하여 로그인이 된 경우만 댓글생성이 보이도록 함.
 - 댓글 목록도 동시에 출력 (부트스트랩 레이아웃 적용)
-  - '`{% for comment in post.comment_set.all %}` 진자템플릿을 이용하여 반복문을 실행함.
+  - {% raw %}'`{% for comment in post.comment_set.all %}`{% endraw %}  진자템플릿을 이용하여 반복문을 실행함.
   - 실제 코드는 `post.comment_set.all()` 으로 작성되어야 하나, 진자템플릿 문법에는 `()` 이 생략됨.
-  - 반복문이 비어있을 경우,  `{% empty %}` 이하 코드 실행됨.
+  - 반복문이 비어있을 경우, {% raw %} `{% empty %}`{% endraw %}  이하 코드 실행됨.
 
 
 
 ※ Post와 Comment는 models.py를 통해 1:N 관계가 설정되어있으며, 각각의 위치에서 관계된 다른반대쪽을 불러오는 방법은  아래와 같음
-
   - Post에서 Comment로 접근할 때(1 => N) : `post.comment.set.all()`
   - Comment에서 Post로 접근할 때(N => 1) : `comment.post`
 
@@ -174,7 +172,7 @@ def list(request):
 <div class="card-body">
     {% raw %}{% for comment in post.comment_set.all %}{% endraw %}
       <div class="card-text">
-        <strong> {% raw %}{{ comment.user.username }} </strong> {% raw %}{{ comment.content }}{% endraw %}
+        <strong> {% raw %}{{ comment.user.username }}{% endraw %} </strong> {% raw %}{{ comment.content }}{% endraw %}
       </div>
     {% raw %}{% empty %}{% endraw %}
       <div class="card-text">댓글이 없습니다.</div>
@@ -231,17 +229,17 @@ class CommentForm(forms.ModelForm):
 ### 댓글 생성 폼에 bootstrap 입히기 (_post.html)
 
 ```html
-{% if user.is_authenticated %}
+{% raw %}{% if user.is_authenticated %}{% endraw %} 
 <form action="{% url 'posts:comment_create' post.id %}" method="POST">
-    {% csrf_token %}
+    {% raw %}{% csrf_token %}{% endraw %} 
     <div class="input-group">
-        {{ comment_form }}
+        {% raw %}{{ comment_form }}{% endraw %} 
         <div class="input-group-append">
             <input type="submit" value="Submit" class="btn btn-primary"/>
         </div>
     </div>
 </form>
-{% endif %}
+{% raw %}{% endif %}{% endraw %} 
 ```
 
 
