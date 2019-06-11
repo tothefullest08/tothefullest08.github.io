@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Django 19 - 1:N 관계설정 (댓글)
+title: Django 19 - 1:N 관계설정 / 댓글 CRUD (1)
 category: Django
 tags: [Django]
 comments: true
@@ -8,7 +8,7 @@ comments: true
 
 
 
-# 1:N 관계 설정 (댓글)
+# 1:N 관계 설정 & 댓글 CRUD (1)
 
 > 1:N 관계 설정을 통해 각 게시글에 댓글을 쓰는 코드를 작성해보자. 유저와 댓글간의 1:N 및 게시글과 댓글 간의 1:N, 이중 1:N 관계를 띄도록 코드를 작성 할 수 있음.
 

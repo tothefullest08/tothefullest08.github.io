@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Django 20 - M:N 관계설정 / 개인 페이지 만들기
+title: Django 21 - M:N 관계설정 / 개인 페이지 만들기
 category: Django
 tags: [Django]
 comments: true
@@ -49,7 +49,6 @@ class Post(models.Model):
 ### views.py & urls.py 코드 작성(좋아요 함수 구현)
 
 `Post` 모델 클래스에 새로 생성한 `like_users` 필드는 리스트의 형태를 띄고 있음. 이는 M:N 관계에 따라, `like_users` 에 하나의 값만 저장되는게 아니라 여러 값이 저장 될 수 있기 때문임.  이를 활용하여,  동일한 url과 동일한 함수를 사용하여,  요청을 보내는 유저가 `like_users ` 리스트에 포함되지 않았을 경우,  리스트에 유저를 추가 한 후, 좋아요 기능이 활성화되고, 반대의 경우는 유저를 리스트에서 제거하여 좋아요 기능을 비활성화 시키면 됨.
-
 - `post.like_users.all()` : 인스턴스 객체인 `post` 내 `like_users` 안의 모든 유저정보를 갖고 옴.
 - 조건문을 이용하여 좋아요 기능 활성화/비활성화를 나눔.
 
@@ -77,7 +76,6 @@ urlpatterns = [
 ### _post.html 수정
 
 [font Awesome](<https://fontawesome.com/>) 은 벡터 기반의 웹폰트 아이콘 제공하는 사이트로, CDN을 활용하여 아이콘을 웹페이지에 삽입 시킬 수 있음.  원하는 아이콘을 찾아서 html 문서 안에 코드를 삽입하면 됨. 좋아요 기능을 나타내기위해 꽉찬 하트와 빈 하트를 각각 사용.
-
 - 조건문을 통해 현재 `user` 가 `posts.like_users` 리스트 안에 있을 경우(좋아요가 이미 된 경우),  좋아요 이모티콘(꽉찬 하트) 표시. 그렇지 않은 경우(좋아요가 되지 않은 경우),  빈 하트 이모티콘 표시
 - 추가적으로 `post.like_users.count` 를 통해 좋아요의 갯수를 카운팅 할 수 있음.
 
