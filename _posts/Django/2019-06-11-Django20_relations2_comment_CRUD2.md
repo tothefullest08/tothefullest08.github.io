@@ -61,7 +61,7 @@ urlpatterns = [
 
 views.py 내 댓글을 수정하는 코드는 게시글을 수정하는 코드를 작성했던 방식과 매우 유사함. 
 - `get_object_or_404`  & `Comment` 모델을 이용하여 원하는 댓글에 대한 정보를 갖고 옴. 
-- HTTP Method 가 GET 인 경우;\
+- HTTP Method 가 GET 인 경우
   - `commentForm` 의 instance에 현재 인스턴스 객체의 값을 넣어준 후, `comment_form` 변수에 저장시키고, comment_update.html에 템플릿 변수로 넘김. 브라우저를 통해 html 문서에 접근하면 기존에 저장되있는 정보를 확인 할 수 있음.
 - HTTP Method가 POST인 경우
   - comment_html 에서 내용을 수정한 후 제출할 경우, form 태그 내 method 속성값에 따라, POST 방식으로 데이터를 요청보내게 되고, `request.method == 'POST'` 이하 코드가 실행된다.

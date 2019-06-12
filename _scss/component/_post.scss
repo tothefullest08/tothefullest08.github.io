@@ -1,5 +1,5 @@
 .post {
-  margin-bottom: 4em;
+  margin-bottom: 1em;
 
   h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
@@ -7,16 +7,19 @@
 
   @media (min-width: 38rem) {
     // letter size
-    font-size: .8rem;
+    font-size: .95rem;
 
-    h1 { font-size: 1.5rem; }
+    h1 {
+      margin: 2em 0 1em 0; 
+      font-size: 1.9rem; 
+    }
     h2 { 
       margin: 2em 0 1em 0;
-      font-size: 1.3rem; 
+      font-size: 1.5rem; 
     }
     h3, h4, h5, h6 {
-      margin: 2em 0 1em 0;
-      font-size: 1.0rem;
+      margin: 1em 0 1em 0;
+      font-size: 1.3rem;
     }
   }
 
@@ -33,7 +36,7 @@
   }
 
   .post-more {
-    margin-top: .5em;
+    margin-bottom: 1em;
     text-align: right;
     .fa{
       margin-right: .2em;
@@ -42,7 +45,7 @@
 
   article {
     // based on H tag
-    line-height: 26px;
+    line-height: 1.5;
   }
 }
 

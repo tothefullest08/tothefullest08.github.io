@@ -107,7 +107,7 @@ def comment_create(request, post_id):
 
 ### HTTP methods에 대한 데코레이터 설정
 
-이전 포스팅에서 `@login_required` 데코레이터를 사용하여 로그인이 되어야만이 함수가 실행되게끔 설정을하였던 것처럼, HTTP methods에 대한 데코레이터 설정이 가능함. 해당 데코레이터 사용을 위해 관련코드 `import`
+이전 포스팅에서 `@login_required` 데코레이터를 사용하여 로그인이 되어야만이 함수가 실행되게끔 설정을하였던 것처럼, HTTP methods에 대한 데코레이터 설정이 가능함. 해당 데코레이터 사용을 위해 관련코드 import`
 
 - `from django.views.decorators.http import require_POST`
 - import 이하에는 원하는 HTTP methods를 입력해주면 됨
@@ -116,7 +116,7 @@ def comment_create(request, post_id):
   - `require_safe` :GET 방식과 HEAD방식만 가능
   - `require_http_methods(['GET','POST'])` : GET, POST방식 사용 가능
 - 위의 방법을 사용하면 `if request.method == 'POST'` 와 같은 조건문을 사용할 필요가 없음
-- <https://docs.djangoproject.com/en/2.2/topics/http/decorators/>
+- [공식문서](<https://docs.djangoproject.com/en/2.2/topics/http/decorators/>) 참조
 
 ```python
 from django.views.decorators.http import require_POST
