@@ -79,6 +79,7 @@ urlpatterns = [
 [font Awesome](<https://fontawesome.com/>) 은 벡터 기반의 웹폰트 아이콘 제공하는 사이트로, CDN을 활용하여 아이콘을 웹페이지에 삽입 시킬 수 있음.  원하는 아이콘을 찾아서 html 문서 안에 코드를 삽입하면 됨. 좋아요 기능을 나타내기위해 꽉찬 하트와 빈 하트를 각각 사용.
 - 조건문을 통해 현재 `user` 가 `posts.like_users` 리스트 안에 있을 경우(좋아요가 이미 된 경우),  좋아요 이모티콘(꽉찬 하트) 표시. 그렇지 않은 경우(좋아요가 되지 않은 경우),  빈 하트 이모티콘 표시
 - 추가적으로 `post.like_users.count` 를 통해 좋아요의 갯수를 카운팅 할 수 있음.
+- fontAwesome을 사용하기 위한 CDN 코드를 base.html에 삽입하자.
 
 ```html
 <!--좋아요 기능-->
@@ -151,7 +152,12 @@ urlpatterns = [
 
 _post.html 에 각 게시글마다 게시글에 대한 유저정보가 뜨도록 코드를 작성해놓았음 (Django18 - 게시글에 유저정보 표시하기 참조). 유저정보는 `post.user.username` 을 통해 표시되어있으며, 이를 활용하여 개인 페이지로 들어가는 링크와 연결 시킬 수 있음
 
+- Boostrap card를 이용하여 양식을 다듬었음.
+
 ```html
-<strong>게시글 작성자: <a href="{% raw %}{% url 'accounts:people' post.user.username %}{% endraw %}">{{ post.user.username }}</strong></a>
+<div class="card" style="width: 18rem;">
+  <div class="card-header">
+    <span> <a href="{% raw %}{% url 'accounts:people' post.user.username %}{% endraw %}">{% raw %}{{ post.user.username }}{% endraw %} </a></span>
+  </div>
 ```
 
