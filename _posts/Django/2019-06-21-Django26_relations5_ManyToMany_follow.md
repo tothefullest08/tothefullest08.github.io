@@ -19,7 +19,7 @@ comments: true
 1. Proxy Model: 기존의 User 모델을 그대로 사용하되, 일부 동작을 변경하는데만 사용
 2. User Profile: 하나의 새로운 모델을 정의한 후, User 모델과 1:1 관계설정(프로필 모델 참조)
 3. AbstractBaseUser: 완전한 새로운  User 모델을 만들때 사용
-4. AbstractUser: 기존의 User 모델을 사용하되, 추가적인 정보를 더 넣고 싶을 때 사용. 2번 방법은 추가로 클래스를 생성하지만, 이 방법의 경우 추가로 클래스를 생성하지는 앟음.
+4. AbstractUser: 기존의 User 모델을 사용하되, 추가적인 정보를 더 넣고 싶을 때 사용. 2번 방법은 추가로 클래스를 생성하지만, 이 방법의 경우 추가로 클래스를 생성하지는 않음.
 
 [관련 내용 참조](<https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html#proxy>)
 

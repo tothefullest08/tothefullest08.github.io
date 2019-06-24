@@ -323,7 +323,7 @@ class Music(models.Model):
 
 - `ArtistDetailSerializer`  클래스 정의. 
 - `MusicSerializer`를 통해 갖고오는 music 정보는 `music_set`이라는 변수에 저장. 
-  - `artist.music_set.all()` 와 같이 1:N 관계에서 1로부터 N으로 접근할 경우 `_set`을 사용함. SQL문을 사용하여 자식모델에 접근하기 위해 변수명에 `_set`을 넣어서 정의
+  - `artist.music_set.all()` 와 같이 1:N 관계에서 1로부터 N으로 접근할 경우 `_set`을 사용함. 이 방법을 사용하여 자식모델에 접근하기 위해 변수명에 `_set`을 넣어서 정의
   -  MusicSerializer의 인자에 변환할 기존의 데이터를 첫번째 인자에 넣지 않는 이유는  views.py 내에서 Artist 모델의 인스턴스 객체인 artist를 ArtistDetailSerializer의 인자로 넘기는데, 해당 객체는 artist_id를 갖고 있으므로, `ArtistDetailSerializer` 내 `MusicSerializer` 의 인자로 변수를 따로 넘길 필요가 없으며, 관계설정에 따라 해당 가수의 음악 목록을 다 갖고 올 수 있음.
 
 ```python
