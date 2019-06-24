@@ -41,36 +41,36 @@ def follow(request, user_id):
   - 리스트의 길이를 출력하면 팔로워/팔로잉의 수를 뽑아낼 수 있음.
 
 ```html
-{% extends 'base.html' %}
-{% load bootstrap4 %}
-{% block container %}
+{% raw %}{% extends 'base.html' %}{% endraw %}
+{% raw %}{% load bootstrap4 %}{% endraw %}
+{% raw %}{% block container %}{% endraw %}
 
 <div class="container">
     <div class="row">
         <div class="col-3">
             <h1> 
-            {% if people.profile.image %}
-            <img src="{{ people.profile.image.url }}" width= 70, 
-                 alt="{{ people.profile.image}}">
-            {% endif %}
-            {{ people.username }}
+            {% raw %}{% if people.profile.image %}{% endraw %}
+            <img src="{% raw %}{{ people.profile.image.url }}{% endraw %}" width= 70, 
+                 alt="{% raw %}{{ people.profile.image}}{% endraw %}">
+            {% raw %}{% endif %}{% endraw %}
+            {% raw %}{{ people.username }}{% endraw %}
             </h1>
         </div>
         <div class="col-9">
             <div>
-                <strong>{{ people.profile.nickname }}</strong>
-                {{ people.followers.all }}
-                {% if user != people %}
-                    {% if user in people.followers.all %}
-                    <a href="{% url 'accounts:follow' people.id %}">UnFollow</a>
-                    {% else %}
-                    <a href="{% url 'accounts:follow' people.id %}">Follow</a>
-                    {% endif %}
-                {% endif %}
+                <strong>{% raw %}{{ people.profile.nickname }}{% endraw %}</strong>
+                {% raw %}{{ people.followers.all }}{% endraw %}
+                {% raw %}{% if user != people %}{% endraw %}
+                    {% raw %}{% if user in people.followers.all %}{% endraw %}
+                    <a href="{% raw %}{% url 'accounts:follow' people.id %}{% endraw %}">UnFollow</a>
+                    {% raw %}{% else %}{% endraw %}
+                    <a href="{% raw %}{% url 'accounts:follow' people.id %}{% endraw %}">Follow</a>
+                    {% raw %}{% endif %}{% endraw %}
+                {% raw %}{% endif %}{% endraw %}
             </div>
             <div>
-                <strong> Followers: </strong> {{ people.followers.count }}
-                <strong> Followings: </strong> {{ people.followings.count }}
+                <strong> Followers: </strong> {% raw %}{{ people.followers.count }}{% endraw %}
+                <strong> Followings: </strong> {% raw %}{{ people.followings.count }}{% endraw %}
 ```
 
 
@@ -189,5 +189,6 @@ urlpatterns = [
 - base.html
 
 ```html
-<a href="{% url 'posts:explore' %}">Explore</a>
+<a href="{% raw %}{% url 'posts:explore' %}{% endraw %}">Explore</a>
 ```
+
