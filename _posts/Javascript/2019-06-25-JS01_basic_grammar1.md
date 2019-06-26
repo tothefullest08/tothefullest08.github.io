@@ -4,7 +4,6 @@ title: JavaScript 01 - 기본문법 (1) / HTML 조작, 변수, 자료형, 조건
 category: Javascript
 tags: [Javascript]
 comments: true
-
 ---
 
 
@@ -100,7 +99,6 @@ document.write(word2)
 const word2 = '안녕2?' // Uncaught TypeError: Assignment to constant variable 에러발생
 ```
 
-#### 
 
 #### 2) `var` vs `let`, `const`
 
