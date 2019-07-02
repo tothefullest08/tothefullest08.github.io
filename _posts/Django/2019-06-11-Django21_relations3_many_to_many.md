@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Django 21 - M:N 관계설정 / 개인 페이지 만들기
+title: Django 21 - M:N 관계설정 (좋아요 기능) / 개인 페이지 만들기
 category: Django
 tags: [Django]
 comments: true
@@ -8,7 +8,7 @@ comments: true
 
 
 
-# M:N 관계 설정 
+# M:N 관계 설정 (좋아요 기능)
 
 > 1:N 관계는 하나의 모델(N)에 대하여 하나의 모델만이 연결이 될 수 있음. 그러나 일반적으로 "좋아요" 기능의 경우, 한명의 유저(user)가 여러 게시글(post)에 "좋아요"를 누를 수 있으며, 반대로 하나의 게시글(post)에도 여러명의 유저(user)가 좋아요를 누를 수 있어야함. 따라서 1:N 관계가 아니라 다대다(M:N) 관계 설정이 필요함.
 
