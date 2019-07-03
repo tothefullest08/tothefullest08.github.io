@@ -60,6 +60,7 @@ Django 인스타 프로젝트에서 좋아요 기능을 동적으로 구현했�
   - 기존의 이벤트(폼태그가 하는 행동. post 요청을 통해 action으로 url주소를 넘김)
   - `addEventListener` 통해 `console.log` 이벤트 작동
 - 우리는 페이지를 새로고치지 않고 동적으로 변경되게 하고 싶으므로 기존의 이벤트를 막아야함 => `preventDefault` 사용 (기존의 이벤트는 막히게 됨)
+- `preventDefault` 로 막지 않을 경우, 댓글 생성 버튼을 눌렀을때, MTV 패턴에 따라 함수가 실행되고 페이지가 새로고침되어 console창에 출력되는 event 객체를 확인할 수가 없음!
 
 ```javascript
 const commentForms = document.querySelectorAll('.comment-form')
@@ -76,12 +77,14 @@ commentForms.forEach(function(form){
 #### 4) list.html (2)
 
 - 댓글의 주소 뿐만 아니라 텍스트(생성된 댓글)도 갖고와야함.
-- `event.target` 에는 이벤트를 전달한 객체(이벤트가 시작된 DOM 요소)가 담겨 있음 (form 태그 )
+- `event.target` 에는 이벤트를 전달한 객체(이벤트가 시작된 DOM 요소)가 담겨 있음 (form 태그 안의 모든 정보가 담겨있음)
 - `FormData` 검증하기
   - `FormData` 인터페이스는 form필드와 그 값을 나타내는 일련의 key/value 쌍을 쉽게 생성할 수 있는 방법을 제공함 (폼에 글을 작성하고, html에서 submit 버튼을 눌렀을 때, 보내게 되는 요청을 객체에 실어서 던지게 되는데, 그게 담겨있는 바구니의 개념)
   - `FormData` 는 일종의 클래스로, 클래스로부터 인스턴스를 만들 때는 `new` 키워드를 붙여 줘야함.
   - `FormData.entries()` : 객체가 담긴 모든 key/value 쌍을 순회할 수 있는 `iterator` 을 반환함.
-- `data` 에는 html 문서 전체가 담겨있음. 댓글 관련 정보만 갖고오면 되므로, Django가 하는 응답을 수정해야함.
+- `event.target.action` 에는 댓글 생성에 대한 url 정보가 담겨있음.
+- `axios.post`의 두번째 인자로, Formdata를 통해갈무리된 객체인 `data`를 넘겨줌.
+- `response` 에는 html 문서 전체가 담겨있음. 댓글 관련 정보만 갖고오면 되므로, Django가 하는 응답을 수정해야함.
 
 ```javascript
 const commentForms = document.querySelectorAll('.comment-form')
@@ -95,12 +98,36 @@ commentForms.forEach(function(form){
         //for (const item of data.entries()){
         //		console.log(item)
         //}
-        axios.get(event.target.action, data)
+        
+        axios.post(event.target.action, data)
         	.then(function(response){
             	console.log(response)
         })
     })
 })
+```
+
+
+
+#### 4-1) `FormData.entries()`
+
+- 위에서 FormData.entries()에는 form 태그를 통해 전송되는 값을 나타내는 key/value 쌍을 순회할 수 있는 iterator을 반환한다는 것을 알 수있음. 
+- 위의 코드 박스 내 "Inspect FormData" 내 반복문 코드를 입력한 후, 댓글을 생성하고 console창에 찍힌 로그를 보면 아래와 같이 출력됨을 알수 있음
+- Form 태그를 통해 POST방식으로 요청을 보낼 때는 아래와 같이 2가지의 정보가 전송됨 을 알 수 있음.
+  - CSRF_TOKEN & 댓글 내용(content)
+
+```javascript
+(2) ["csrfmiddlewaretoken", "AuGAXE7Jio1BxQePvUfC85eDDcYU0OtSD2hF2EhvCVhrLsPxzNi6xfnMUz3K17Ll"]
+	0: "csrfmiddlewaretoken"
+	1: "AuGAXE7Jio1BxQePvUfC85eDDcYU0OtSD2hF2EhvCVhrLsPxzNi6xfnMUz3K17Ll"
+	length: 2
+	__proto__: Array(0)
+
+(2) ["content", "댓글입니다"]
+    0: "content"
+    1: "댓글입니다"
+    length: 2
+    __proto__: Array(0)
 ```
 
 
@@ -180,7 +207,7 @@ commentForms.forEach(function(form){
         
         const data = new FormData(event.target)
 
-        axios.get(event.target.action, data)
+        axios.post(event.target.action, data)
         	.then(function(response){
             	const comment = response.data
                 const commentList = document.querySelector(
@@ -192,8 +219,30 @@ commentForms.forEach(function(form){
 				<a href="/posts/${comment.postId}/comments/${comment.id}/update/">
 수정</a>
     </li>`
-                commentList.insertAdj
+                commentList.insertAdjacentHTML('beforeEnd', newComment)
+            	event.target.reset()
         })
     })
 })
 ```
+
+
+
+#### 7-1) insertAdjacentHTML 구문 
+
+```html
+element.insertAdjacentHTML(position, text);
+```
+
+position은 아래 있는 단어만 사용 가능하다.
+
+- `'beforebegin'` : element 앞에 
+- `'afterbegin'` : element 안에 가장 첫번째 child
+- `'beforeend'` : element 안에 가장 마지막 child
+- `'afterend'` : element 뒤에
+
+```
+text(인자)는 HTML 또는 XML로 해석될 수 있는 문자열이고(html code), (DOM) tree에 삽입할 수 있다.
+```
+
+※비동기식으로 동적으로 만들 때는, 하나의 댓글을 뒤에 갖다붙이기보다는 전체 댓글을 갖고와서 뒤에 쓰는 것을 선호함.
