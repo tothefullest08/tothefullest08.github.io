@@ -182,7 +182,7 @@ def like(request, post_id):
 
 ```html
 <!-- 변경한 코드 -->
-<span id="like-count-{% raw %}{{ post.id }}{% endraw %}"> {{ post.like_users.count }}</span> 명이 좋아합니다.
+<span id="like-count-{% raw %}{{ post.id }}{% endraw %}"> {% raw %}{{ post.like_users.count }}{% endraw %}</span> 명이 좋아합니다.
 ```
 
 

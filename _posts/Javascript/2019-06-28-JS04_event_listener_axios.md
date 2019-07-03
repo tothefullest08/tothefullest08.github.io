@@ -76,7 +76,7 @@ Event Listener는 말그대로 해당 Event에 대해 대기중인 것을 말함
 
 
 
-## Axios 를 이용한 요청 보내기(+ EventListener)
+## Axios를 이용한 요청 보내기(+ EventListener)
 
 자바스크립트를 통해서 요청을 보내 보도록 하자. (강아지 사진을 random으로 가지고 오는 [API](https://dog.ceo/dog-api/)활용)
 

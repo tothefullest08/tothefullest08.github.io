@@ -145,7 +145,7 @@ console.log(someComputerAvailable)
 
 ## 7-1. `reduce`
 
-배열의 각 요소에 대해 주어진 reducer 함수를 실행시키고 하나의 결과 값을 반환함.
+배열의 각 요소에 대해 주어진 reduce 함수를 실행시키고 하나의 결과 값을 반환함.
 
 #### 1) 구문
 
