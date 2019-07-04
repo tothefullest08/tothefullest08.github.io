@@ -1,6 +1,6 @@
 # Site Info
-title: 'Today I Learned'
-tagline: 'Today I Learned'
+title: '해리의 데브로그'
+tagline: '해리의 데브로그'
 description: '프로그래밍을 공부하며 배운점을 정리하고 기록하는 곳입니다'
 baseurl: ""
 url: https://tothefullest08.github.io/
@@ -65,7 +65,7 @@ category_page: '/blog/categories/'
 
 # Puglins
 mathjax: true # whether support mathjax
-google_analytics_token: 'UA-00000000-1' # leave blank if you don't want google analytics
+google_analytics_token: 'UA-143239251-1' # leave blank if you don't want google analytics
 disqus_short_name: 'tothefulles08' # leave blank if you don't want disqus
 
 #Use the following plug-ins
