@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 실습 UI 개발을 통해 배워보는 JS & Vue JS (3) - 검색결과 구현
+title: 실습 UI 개발을 통해 배워보는 JS & Vue JS (3) - 검색결과 구현 (JS)
 category: Javascript
 tags: [Javascript, Vue]
 comments: true
@@ -11,8 +11,6 @@ comments: true
 > 본 강의는 Inflearn의 김정환 개발자 님의 강의([실습 UI 개발로 배워보는 순수 javascript 와 VueJS 개발]([https://www.inflearn.com/course/%EC%88%9C%EC%88%98js-vuejs-%EA%B0%9C%EB%B0%9C-%EA%B0%95%EC%A2%8C/dashboard](https://www.inflearn.com/course/순수js-vuejs-개발-강좌/dashboard)))를 듣고 배운 내용을 정리한 포스팅 입니다. 
 
 
-
-# 실습 UI 개발을 통해 배워보는 JS & Vue JS (3) - 검색결과 구현
 
 ## 검색 결과 구현 (1)
 
@@ -115,7 +113,10 @@ export default ResultView;
 
 HTML DOM을 만들어내는 render 함수를 MainController가 호출해야됨. 그시점에대해서 생각해보도록 하자.
 
-- Form에서 입력이 발생 했을 때, `@submit` 이벤트 발생 -> `@submit` 이벤트를 처리하는 것이 `onSubmit` 함수 -> `onSubmit` 함수는 입력데이터를 받아서 검색 요청을 하게 될 것임  ->  검색요청하는 메서드 `search` 를 `onsubmit` 함수 내에서 호출 
+- Form에서 입력이 발생 했을 때, `@submit` 이벤트 발생 
+- `@submit` 이벤트를 처리하는 것이 `onSubmit` 함수 
+- `onSubmit` 함수는 입력데이터를 받아서 검색 요청을 하게 될 것임  
+- 검색요청하는 메서드 `search` 를 `onsubmit` 함수 내에서 호출 
 - `Search` 함수는 search API를 백엔드로 호출. 그 결과를 받아 `onSearchResult`가 처리. 뭔가 데이터를 받아 넘겨주도록 할 것임.
 - `onSearchResult` 함수는 서버로 부터 받은 데이터를 ResultView.js > `render` 메서드로 넘김
 

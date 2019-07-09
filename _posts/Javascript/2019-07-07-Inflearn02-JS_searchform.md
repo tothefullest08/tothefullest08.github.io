@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 실습 UI 개발을 통해 배워보는 JS & Vue JS (2) - 검색폼 구현
+title: 실습 UI 개발을 통해 배워보는 JS & Vue JS (2) - 검색폼 구현 (JS)
 category: Javascript
 tags: [Javascript, Vue]
 comments: true
@@ -11,8 +11,6 @@ comments: true
 > 본 강의는 Inflearn의 김정환 개발자 님의 강의([실습 UI 개발로 배워보는 순수 javascript 와 VueJS 개발]([https://www.inflearn.com/course/%EC%88%9C%EC%88%98js-vuejs-%EA%B0%9C%EB%B0%9C-%EA%B0%95%EC%A2%8C/dashboard](https://www.inflearn.com/course/순수js-vuejs-개발-강좌/dashboard)))를 듣고 배운 내용을 정리한 포스팅 입니다. 
 
 
-
-# 실습 UI 개발을 통해 배워보는 JS & Vue JS (2) - 검색폼 구현
 
 ## 검색폼 구현 (1)
 
@@ -154,7 +152,6 @@ FormView.onKeyup = function(e) {
 #### 1) FormView.js
 
 - 키를 입력하는 부분이 onKeyup 함수. 엔터키인지 아닌지를 구별하는 코드 입력. 
-
 - 엔터키는 keyCode가 13으로 정의되어있음 (enter라고 선언한 상수에 저장)
 - 만약에 이벤트의 키코드값이 엔터가 아닌경우 반환을 하고, 엔터인 경우에는 처리를 해줘야함. (엔터키를 입력하면 검색결과가 보인다)
 - 검색결과를 보여주는 것이 FormView의 역할인지를 생각해봐야함. FormView는 검색결과를 보여주는 역할을 하지 않음. 대신에 MainController에게 알려주기만하면됨. MainController는 FormView에서 엔터키가 눌러진다는 것을 확인하고, 다른 View에게 검색결과를 보여주도록 요청을 하면됨. (컨트롤러에게 위임)
