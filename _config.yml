@@ -42,8 +42,8 @@ nav:
   Blog:           
     - '/'
     # - { Categories All: '/blog/categories/' }
-    - { Algorithm - SWEA: '/blog/categories/#Algorithm' }
-    - { Algorithm - BJ: '/blog/categories/#AlgorithmBJ' }
+    - { Algorithm: '/blog/categories/#Algorithm' }
+    - { Algorithm_BJ: '/blog/categories/#AlgorithmBJ' }
     - { TIL: '/blog/categories/#TIL' }
     - { Django: '/blog/categories/#Django' }
     - { Python: '/blog/categories/#python' }
