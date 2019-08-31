@@ -42,13 +42,14 @@ nav:
   Blog:           
     - '/'
     # - { Categories All: '/blog/categories/' }
+    - { Algorithm - SWEA: '/blog/categories/#Algorithm' }
+    - { Algorithm - BJ: '/blog/categories/#AlgorithmBJ' }
     - { TIL: '/blog/categories/#TIL' }
     - { Django: '/blog/categories/#Django' }
     - { Python: '/blog/categories/#python' }
     - { Javascript: '/blog/categories/#Javascript' }
     - { Web: '/blog/categories/#Web' }
     - { Git: '/blog/categories/#Git' }
-    - { Algorithm: '/blog/categories/#Algorithm' }
     - { etc: '/blog/categories/#etc' }    
   About:          
     - '/about/'
