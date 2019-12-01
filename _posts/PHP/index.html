@@ -1,0 +1,9 @@
+---
+layout:index_PHP
+---
+
+<ul>
+    {% for post in site.categories.PHP %}
+        <li><a href="{{post.url}}"> {{post.title}} </li>
+    {% endfor %}
+</ul>

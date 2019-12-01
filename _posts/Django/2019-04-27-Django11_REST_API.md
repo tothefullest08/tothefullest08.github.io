@@ -19,7 +19,7 @@ comments: true
 > <https://ko.wikipedia.org/wiki/REST>
 > [http://blog.remotty.com/blog/2014/01/28/lets-study-rest/](https://blog.remotty.com/blog/2014/01/28/lets-study-rest/)
 > <https://yangbongsoo.gitbooks.io/study/content/restc758_c774_d574_c640_c124_acc4.html>
-> http://spoqa.github.io/2012/02/27/rest-introduction.html](https://spoqa.github.io/2012/02/27/rest-introduction.html)
+> http://spoqa.github.io/2012/02/27/rest-introduction.html
 
 
 
@@ -231,8 +231,8 @@ POST  /movies/2/edit		- 수정 작업을 수행함
 
 ### Edit & Update 수정
 > 같은 방법으로,  `edit` & `update.html`에 대한 `urlpattern` & `views.py` 내용도 수정 가능.
-- views.py
 
+- views.py
 ```python
 {% raw %}#views.py
 def edit(request, post_id):
@@ -275,7 +275,6 @@ def edit(request, post_id):
 > 장고에는 HTTP Method 중 하나인 `delete`를 지원하지 않기 때문에, `GET`과``POST`  메서드를 통해 대안으로 구현할 수 있음.
 > - GET: 삭제에 대한 Confirm  유무를 보여주는 URI(리소스)를 조회함
 > - POST:  Delete 실행
-
 
 
 - urls.py
