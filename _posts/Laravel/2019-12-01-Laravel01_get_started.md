@@ -10,7 +10,7 @@ comments: true
 
 #### 1.1 XAMPP 설치
 
-[XAMPP 설치][] & XAMPP Control Panel 실행. 
+[XAMPP 설치](<https://www.apachefriends.org/index.html>) & XAMPP Control Panel 실행. 
 
 - Apache - Config - Apach (httpd.config) 설정으로 들어가 Post 넘버 변경(Listen 3000 & ServerName localhost:3000)
 - 마찬가지로 Apach (httpd-ssl.config) 설정으로 들어가 변경(Listen 1443,  \<VirtualHost \_default_:1443>, ServerName www.example.com:1443)
@@ -29,7 +29,6 @@ policy(Dependency) maanger for PHP. 패키지간의 의존성을 관리도구이
 Download로 들어가 composer를 설치해주도록 하자. 설치 이후, cmd에서 `composer`을 입력하면 composer에 대한 설명을 볼 수 있음.
 
 - <https://getcomposer.org/>
-
 - <https://packagist.org/>
 
 
@@ -70,4 +69,3 @@ Download로 들어가 composer를 설치해주도록 하자. 설치 이후, cmd�
 ```
 
 - `<http://cms.test:3000/>` 으로 접속 가능
-

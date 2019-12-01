@@ -18,7 +18,7 @@ Django의 urls.py처럼 url을 정하여 View와 연동시키는 설정을 하�
 - `::`  : static method를 의미함
 - 첫번째 파라미터로 url 주소를 입력, 두번째 파라미터로 closure function또는 controller 등을 입력할 수 있음. `view()`를 return시키거나,  text를 return하는 것도 가능함.
 
-404 Error가 발생할 경우, [링크][] 를 참조할 것. (혹은 `php artisan serve` 를 shell에서 실행 시켜 접속하자)
+404 Error가 발생할 경우, `php artisan serve` 를 terminal에서 실행 시켜 접속하자
 
 ```php
 <?php
@@ -59,9 +59,7 @@ Route::get('/post/{id}/{name}', function($id, $name) {
 
 #### 1.3 naming
 
-지정한 url에 대하여 naming 설정도 가능함.
-
-`Route` 클래스의 두번째 파라미터로 `array()` 메서드를 사용. naming 명으로 해당 url 호출 가능
+지정한 url에 대하여 naming 설정도 가능함. `Route` 클래스의 두번째 파라미터로 `array()` 메서드를 사용. naming 명으로 해당 url 호출 가능
 
 - 첫번째 파라미터: `as=> naming 명` 
 - 두번째 파라미터:  closure 함수 입력
@@ -279,15 +277,13 @@ $ php artisan route:list
 
 ## 3. Views
 
-#### 3.1 resources/views/contact.blade.php
+#### 3.1 Get Started
 
-Laravel Blate Template Engine을 사용하면 `<?php echo $this ?>` 의 문법을 쉽게 `{{}}` 으로 변경하여 사용할수 있음. Simple하게 welcome.blade.php 파일의 내용을 갖고와 코드를 붙여놓도록 하자.
+- resources/views/contact.blade.php
+  - Laravel Blate Template Engine을 사용하면 `<?php echo $this ?>` 의 문법을 쉽게 `{{}}` 으로 변경하여 사용할수 있음. Simple하게 welcome.blade.php 파일의 내용을 갖고와 코드를 붙여놓도록 하자.
 
-
-
-#### 3.2 Controller & Routes
-
-해당 view로 연결시키는 메서드를 PostsController.php 내에 생성 & Routes 또한 생성
+- Controller & Routes
+  - 해당 view로 연결시키는 메서드를 PostsController.php 내에 생성 & Routes 또한 생성
 
 ```php
 Route::get('/contact', 'PostsController@contact');
@@ -301,7 +297,7 @@ public function contact(){
 
 
 
-#### 3.3 view에 data 넘기기
+#### 3.2 view에 data 넘기기
 
 - Routes & Controller
   - `{id}`를 variable routing으로 controller로 넘김.
@@ -327,6 +323,3 @@ public function show_post($id){
     </div>
 </body>
 ```
-
-
-
