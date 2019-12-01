@@ -1,0 +1,9 @@
+---
+layout:index_Laravel
+---
+
+<ul>
+    {% for post in site.categories.Laravel %}
+        <li><a href="{{post.url}}"> {{post.title}} </li>
+    {% endfor %}
+</ul>

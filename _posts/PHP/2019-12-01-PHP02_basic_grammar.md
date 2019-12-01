@@ -181,7 +181,7 @@ echo gettype($a); #double
 
 #### 2-5. 가변변수
 
-가변변수(variable variables).  변수의 이름을 가변적으로 변수로 변경 할 수 있게 함.
+- 가변변수(variable variables).  변수의 이름을 가변적으로 변수로 변경 할 수 있게 함.
 
 ```php
 <html>

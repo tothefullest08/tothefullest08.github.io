@@ -43,6 +43,7 @@ nav:
     - '/'
     # - { Categories All: '/blog/categories/' }
     - { PHP: '/blog/categories/#PHP' }
+    - { Laravel: '/blog/categories/#Laravel' }
     - { Algorithm: '/blog/categories/#Algorithm' }
     - { Algorithm_BJ: '/blog/categories/#AlgorithmBJ' }
     - { TIL: '/blog/categories/#TIL' }

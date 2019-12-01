@@ -99,7 +99,6 @@ echo get_members()[0]; #php 5.4 이상 버전에서 사용 가능
 #### 2-2. 배열의 사용(반복문)
 
 - `count()` : 배열의 길이 반환
-
 - `ucfirst()` : string의 첫번째 문자를 대문자로 변경
 
 ```php
@@ -199,8 +198,7 @@ var_dump($li);
 #### 3. 연관배열(Aassociative Array)
 
 - 배열의 식별자(인덱스)로 숫자가 아니라 문자를 사용(Python의 Dictionary와 매우 유사한 자료 구조)
-
-- `array()` 와  `=>`를 조합하여 만들거나 파이썬의 딕셔너리처럼 key, value값을 넣는 방법 사용가능 
+- `array()` 와  `=>`를 조합하여 생성. 혹은 Python Dict처럼  key, value값을 입력 가능
 - 열거 할 경우, `foreach` 사용
   - `for`은 숫자를 기반으로 사용 가능. 문자기반인 연관배열에서는 `foreach` 사용
 
