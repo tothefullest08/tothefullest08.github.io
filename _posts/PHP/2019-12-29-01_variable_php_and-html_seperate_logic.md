@@ -39,7 +39,7 @@ echo "{$greeting}, {$name}";
 
 PHP와 HTML을 같이 쓸 경우에는 닫는 태그 `?>` 가 반드시 필요함
 
-```php+HTML
+```php+html
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -66,7 +66,7 @@ PHP와 HTML을 같이 쓸 경우에는 닫는 태그 `?>` 가 반드시 필요�
 - `$_GET` 을 사용하여 value값을 갖고 올 수 있음.
 - 해당 방법은 다음과 같이 확장/활용 가능. `<?php` 는 `<?=`와 같이 shorthand로도 나타 낼 수 있음.
 
-```php+HTML
+```php
 <h1>
   <?php
   	$name = $_GET['name']; # harry
@@ -111,7 +111,7 @@ $greeting = "Hello World";
 require 'index.view.php'; 
 ```
 
-```php+HTML
+```html
 <!-- index.view.php -->
 <!DOCTYPE HTML>
 <html lang="en">
