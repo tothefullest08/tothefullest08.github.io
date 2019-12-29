@@ -39,7 +39,7 @@ echo "{$greeting}, {$name}";
 
 PHP와 HTML을 같이 쓸 경우에는 닫는 태그 `?>` 가 반드시 필요함
 
-```php+html
+```php
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -61,7 +61,7 @@ PHP와 HTML을 같이 쓸 경우에는 닫는 태그 `?>` 가 반드시 필요�
 </html>
 ```
 
-쿼리스트링이 url에 포함되는 경우(`http://localhost:8000/?name=harry`)
+p쿼리스트링이 url에 포함되는 경우(`http://localhost:8000/?name=harry`)
 
 - `$_GET` 을 사용하여 value값을 갖고 올 수 있음.
 - 해당 방법은 다음과 같이 확장/활용 가능. `<?php` 는 `<?=`와 같이 shorthand로도 나타 낼 수 있음.
@@ -87,10 +87,10 @@ PHP와 HTML을 같이 쓸 경우에는 닫는 태그 `?>` 가 반드시 필요�
 
 - `Htmlspecialchar()` 메서드를 사용
 
-```php+HTML
+```php
 <h1>
   <?= "Hello, ". htmlspecialchars($_GET['name']); ?> 
-  <!-- 출력 값: Hello, <small>harry</small> -->
+  // 출력 값: Hello, <small>harry</small>
 </h1>
 ```
 
@@ -111,7 +111,7 @@ $greeting = "Hello World";
 require 'index.view.php'; 
 ```
 
-```html
+```php
 <!-- index.view.php -->
 <!DOCTYPE HTML>
 <html lang="en">
@@ -135,3 +135,4 @@ require 'index.view.php';
 </body>
 </html>
 ```
+

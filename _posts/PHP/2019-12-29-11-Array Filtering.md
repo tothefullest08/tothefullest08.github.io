@@ -112,4 +112,3 @@ $titles = array_column($posts, 'author', 'title');
 
 var_dump($titles);
 ```
-

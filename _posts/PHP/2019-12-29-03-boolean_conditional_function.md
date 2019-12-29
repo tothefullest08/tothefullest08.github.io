@@ -30,7 +30,7 @@ $task = [
 require 'index.view.php';
 ```
 
-```php+HTML
+```php
 </<!doctype html>
 <html lang="en">
 <head>
