@@ -56,7 +56,7 @@ title: Home
         </ul>
 
 
-        {% for tag in site.categories %}
+        {% for tag in site.categories reversed %}
         <a class="category-title"><h2 id="{{ tag[0] | slugify }}">{{ tag[0] }}</h2></a>
         <ul class="tags-expo-posts">
           {% for post in tag[1] %}
