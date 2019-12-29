@@ -17,7 +17,7 @@ comments: true
 
 ```php
 <?php foreach ($project->tasks as $task) : ?>
-  <div>
+  <div>{% raw %}
     <form method="POST" action="/tasks/{{ $task->id }}">
     @method('PATCH')
     @csrf
@@ -28,7 +28,7 @@ comments: true
         {{ $task->description }}
       </label>
     </form>
-  </div>
+  </div>{% endraw %}
 <?php endforeach ?>
 ```
 
@@ -77,6 +77,7 @@ class Task extends Model
 
 ```php
 // add a new task form
+{% raw %}
 <form method="POST" action="/projects/{{ $project->id }}/tasks">
     @csrf
 
@@ -87,6 +88,7 @@ class Task extends Model
     <div>
         <button type="submit">Add Task</button>
     </div>
+{% endraw %}
 </form>
 
 
@@ -161,7 +163,7 @@ public function store(Project $project)
 <div>
     <ul>
         <?php foreach($errors->all() as $error) : ?>
-        <li> {{ $error }}</li>
+        {% raw %}<li> {{ $error }}</li>{% endraw %}
         <?php endforeach ?>
     </ul>
 </div>
@@ -294,7 +296,7 @@ Route::delete('/completed-tasks/{task}', 'CompletedTasksController@destroy');
 show.blade.php - 폼태그의 action 속성 값(url 경로)를 새롭게 지정한 endpoint로 변경시킴. 이때, 동일한 엔드포인트를 기반으로  "테스크 완료" & "테스크 완료 해제"를 적용시키기 위해 `@method` 값을 변경해주는 분기문 작성
 
 ```php
-<?php if($project->tasks->count()) : ?>
+<?php if($project->tasks->count()) : ?>{% raw %}
   <div>
     <?php foreach ($project->tasks as $task) : ?>
       <div>
@@ -312,6 +314,6 @@ show.blade.php - 폼태그의 action 속성 값(url 경로)를 새롭게 지정�
       </form>
     </div>
     <?php endforeach ?>
-  </div>
+  </div>{% endraw %}
 <?php endif ?>
 ```

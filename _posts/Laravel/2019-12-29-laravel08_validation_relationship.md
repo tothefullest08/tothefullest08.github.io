@@ -55,7 +55,7 @@ public function store()
   <div>
   	<ul>
   		<?php foreach($errors->all() as $error) : ?>
-    		<li> {{ $error }}</li>
+    		{% raw %}<li> {{ $error }}</li>{% endraw %}
     	<?php endforeach ?>
     </ul>
   </div>
@@ -64,10 +64,10 @@ public function store()
 
 
 
-마지막으로 유효성 검증이 실패했을 경우, 라라벨은 자동적으로 해당 페이지를 리다이렉트 시키는데, 이때 기존에 입력된 값을 브라우저에 남기고 싶을 경우에는 `{{old('title')}}` 을 입력하면된다.
+마지막으로 유효성 검증이 실패했을 경우, 라라벨은 자동적으로 해당 페이지를 리다이렉트 시키는데, 이때 기존에 입력된 값을 브라우저에 남기고 싶을 경우에는 `{% raw %}{{old('title')}}{% endraw %}` 을 입력하면된다.
 
 ```html
-<div>
+<div>{% raw %}
   <input type="text" name="title" placeholder="Project title"
          required value="{{ old('title') }}">
 </div>
@@ -76,7 +76,7 @@ public function store()
   <textarea name="description" placeholder="Project description" required>
     {{ old('description') }}
   </textarea>
-</div>
+</div>{% endraw %}
 ```
 
 
@@ -246,7 +246,7 @@ Show.blade.php에서도 마찬가지로 메서드이지만 프로퍼티를 호�
 <?php if($project->tasks->count()) : ?>
   <div>
   	<?php foreach ($project->tasks as $task) : ?>
-    	<li> {{ $task->description }}</li>
+    	<li> {% raw %}{{ $task->description }}{% endraw %}</li>
     <?php endforeach ?>
   </div>
 <?php endif ?>
