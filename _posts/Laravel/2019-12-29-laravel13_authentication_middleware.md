@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Laravel 5.7 From Scratch 13 - Authentication / Middleware
-category: PHP
-tags: [Laracast, Laravel]
+category: Laravel
+tags: [PHP, Laracast, Laravel]
 comments: true
 ---
 
@@ -10,7 +10,7 @@ comments: true
 
 #### 1. GET STARTED
 
-라라벨 새 프로젝트 생성.  `Laravel new auth-example` 
+라라벨 새 프로젝트 생성.  `Laravel new auth-example`
 
 웹 서비스에는 누구나 접근 가능하기보다는, authentification layer를 통해 허용된 유저만 접근이 가능해야함.
 
@@ -42,7 +42,7 @@ DB_HOST=127.0.0.1
 DB_PORT=3306
 ```
 
-  
+
 
 #### 3. Auth 살펴보기
 
@@ -73,7 +73,7 @@ Routes\web.php를 보면 `Auth::routes()` 가 추가된 것을 볼 수 있음. a
 
 
 
-Routes\web.php에 보면 /home 엔드포인트에 대하여 HomeController@index 를 호출하는 라우팅이 설정되어 있음. 이에 따라 HomeController.php를 살펴보면, 생성자 메서드로 middleware 메서드를 호출하는 것을 알 수 있음.  
+Routes\web.php에 보면 /home 엔드포인트에 대하여 HomeController@index 를 호출하는 라우팅이 설정되어 있음. 이에 따라 HomeController.php를 살펴보면, 생성자 메서드로 middleware 메서드를 호출하는 것을 알 수 있음.
 
 ```php
 Route::get('/home', 'HomeController@index')->name('home');
@@ -100,8 +100,8 @@ class HomeController extends Controller
 
 App\Http\Middleware\Authenticate.php를 살펴보면
 
--  Illuminate\Auth\Middleware\Authenticate as Middleware를 export 하는 것을 알수 있음. 
-- Illuminate\Auth\Middleware\Authenticate.php는 미들웨어로서, 인증에 관한 로직을 구현해놓음. 
+-  Illuminate\Auth\Middleware\Authenticate as Middleware를 export 하는 것을 알수 있음.
+- Illuminate\Auth\Middleware\Authenticate.php는 미들웨어로서, 인증에 관한 로직을 구현해놓음.
 - 특히 `handle` 메서드를 통해 다음 미들웨어로 넘길 수 있음.
 
 ```php
@@ -154,7 +154,7 @@ public function index()
   auth()->guest(); // guest user
 
   // select * from projects where owner_id = 4
-  $projects = Project::where('owner_id', auth()->id())->get(); 
+  $projects = Project::where('owner_id', auth()->id())->get();
 
   return view('projects.index', compact('projects'));
 }
@@ -162,7 +162,7 @@ public function index()
 
 
 
-#### 6. Migration - Foreign key 
+#### 6. Migration - Foreign key
 
 \database\migration\create_project_table.php 내에서 `owner_id` 라는 새로운 컬럼 추가하며 방법은 2가지가 있음
 
@@ -181,7 +181,7 @@ public function up()
     $table->string('title');
     $table->text('description');
     $table->timestamps();
-    
+
     $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
   });
 }
@@ -210,7 +210,7 @@ class ProjectsController extends Controller
 
 
 
-클래스의 특정 메서드에만 사용자 인증이 진행되도록 설정을 할 수 있음. 
+클래스의 특정 메서드에만 사용자 인증이 진행되도록 설정을 할 수 있음.
 
 ```php
 public function __construct()
@@ -236,8 +236,8 @@ Route::post('/projects/{project}/tasks', 'ProjectTasksController@store')
 
 `ProjectController@store` 메서드에서 `owner_id` 를 추가해야함. 방법은 아래와 같이 2가지임
 
-1. `Project::create($attribute + ['owner_id' => auth()->id()]);` 
-2. `$attribute['owner_id'] = auth()->id();` 
+1. `Project::create($attribute + ['owner_id' => auth()->id()]);`
+2. `$attribute['owner_id'] = auth()->id();`
 
 ```php
 // before

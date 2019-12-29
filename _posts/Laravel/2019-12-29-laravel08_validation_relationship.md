@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Laravel 5.7 From Scratch 08 - Validation / Eloquent Relationship(1:N)
-category: PHP
-tags: [Laracast, Laravel]
+category: Laravel
+tags: [PHP, Laracast, Laravel]
 comments: true
 ---
 
@@ -10,7 +10,7 @@ comments: true
 
 #### 1. Two Layers of Validation
 
-폼 태그로 입력받은 데이터에 대한 유효성 검증(예. 입력하지 않은채 제출할 경우) 은 크게 2가지 방법으로 클라이언트 사이드와 서버 사이드에서 각각 활용이 가능하다. 
+폼 태그로 입력받은 데이터에 대한 유효성 검증(예. 입력하지 않은채 제출할 경우) 은 크게 2가지 방법으로 클라이언트 사이드와 서버 사이드에서 각각 활용이 가능하다.
 
 클라이언트단에서 간단하게 입력 태그에 `required`를 입력하면 된다. 하지만 개발자 도구로 `required`를 삭제할 수 도 있다. 이런 경우, 서버사이드 단에서 추가로 유효성 검증을 아래와 같이 진행한다.
 
@@ -34,7 +34,7 @@ request()->validate([
 public function store()
 {
   $attribute = request()->validate([
-    'title' => ['required', 'min:3'], 
+    'title' => ['required', 'min:3'],
     'description' => ['required','min:3'],
   ]);
 
@@ -48,7 +48,7 @@ public function store()
 
 #### 3. `$errors & old()`
 
-이 후, 에러메세지를 브라우저에서 보여주고 싶다면, 라라벨에서 기본적으로 렌더하는 `$errors` 를 활용할 수 있음. 
+이 후, 에러메세지를 브라우저에서 보여주고 싶다면, 라라벨에서 기본적으로 렌더하는 `$errors` 를 활용할 수 있음.
 
 ```php
 <?php if ($errors->any()) : ?>
@@ -68,13 +68,13 @@ public function store()
 
 ```html
 <div>
-  <input type="text" name="title" placeholder="Project title" 
+  <input type="text" name="title" placeholder="Project title"
          required value="{{ old('title') }}">
 </div>
 
 <div>
-  <textarea name="description" placeholder="Project description" required> 
-    {{ old('description') }} 
+  <textarea name="description" placeholder="Project description" required>
+    {{ old('description') }}
   </textarea>
 </div>
 ```
@@ -154,7 +154,7 @@ class Project extends Model
     public function tasks()
     {
         // 1:N관계설정 시 hasMany 사용
-        return $this->hasMany(Task::class); 
+        return $this->hasMany(Task::class);
     }
 }
 
@@ -181,7 +181,7 @@ INSERT INTO tasks(project_id, description, created_at, updated_at) VALUES(2, 'In
 
 #### 7. php artisan tinker 연습
 
-`php artisan tinker`를 통해 관계 설정된 데이터들의 형태를 볼 수 있음. 
+`php artisan tinker`를 통해 관계 설정된 데이터들의 형태를 볼 수 있음.
 
 - 1에서 N으로 접근시, `App\Project::first()->tasks;`  모델의 메서드를 호출하는 것이지만 `()`은 입력하지 않음.
 - 마찬가지로, N에서 1로 접근 시에도 `APP\Task::first()->project;` 으로 접근

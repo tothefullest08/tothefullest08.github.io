@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Laravel 5.7 From Scratch 12 - Configuration / Environment
-category: PHP
-tags: [Laracast, Laravel]
+category: Laravel
+tags: [PHP, Laracast, Laravel]
 comments: true
 ---
 
@@ -10,7 +10,7 @@ comments: true
 
 #### 1. GET STARTED
 
-환경설정은 기본적으로 `.env` 파일에서 이루어짐. 그리고 config 디렉토리 내에 있는 파일들이 개별적으로 `.env` 파일의 내용을 호출하며 환경설정이 이루어짐. 
+환경설정은 기본적으로 `.env` 파일에서 이루어짐. 그리고 config 디렉토리 내에 있는 파일들이 개별적으로 `.env` 파일의 내용을 호출하며 환경설정이 이루어짐.
 
 `.env` 파일을 보안상의 목적으로 외부에 공개되면 안되므로 `.gitignore`에 추가하여 관리함. 따라서, development & production server의  `.env` 파일의 내용은 다름.
 
@@ -19,7 +19,7 @@ comments: true
 APP_ENV=local
 APP_DEBUG=true
 SESSION_DRIVER=file
-  
+
 # production
 APP_DEBUG=false
 SESSION_DRIVER=reddis
@@ -37,14 +37,14 @@ Config\services.php 내에 key, value값 생성후 app\Providers\SocialServicePr
 // Config\services.php
 
 return [
-  
+
   // ... skip
-  
+
 'twitter' => [
   'key' => 'public-key',
   'secret' => 'secret-key'
 ],
-  
+
 // app\Providers\SocialServiceProvider.php
 <?php
 
@@ -62,7 +62,7 @@ class SocialServiceProvider extends ServiceProvider
             return new Twitter(config('services.twitter.secret'));
         });
     }
-} 
+}
 ```
 
 
@@ -83,7 +83,7 @@ Route::get('/', function(Twitter $twitter) {
 
 
 
-#### 3. Expand 
+#### 3. Expand
 
 Config\services.php 에서 고유 키값을 입력하는 것 보다, 고유값은 `.env`에서 입력한 후, 그 값을 불러오는 것이 더 효율적임
 

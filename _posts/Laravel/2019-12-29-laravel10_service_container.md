@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Laravel 5.7 From Scratch 10 - Service Container
-category: PHP
-tags: [Laracast, Laravel]
+category: Laravel
+tags: [PHP, Laracast, Laravel]
 comments: true
 ---
 
@@ -24,7 +24,7 @@ public function show(Project $project)
  예를 들어, 라라벨은 `Filesystem` 이라는 클래스를 갖고 있음. 클래스를 파라미터로 받아 `dd($file)`  을 입력하면 인스턴스가 출력 결과를 볼 수 있음. 이처럼, 클래스를 파라미터로 받으면 라라벨이 자동적으로 클래스를 사용하게 해줌. behind scene에는 2가지의 컴포넌트가 존재함.
 
 1. Auto-Resolution: "Okay.. you typed in Filesystem here, it seems like you want instance of that.."
-2. Service Container:  Imagine there's key-value pairs in a container.  Laravel is gonna look into container and check "Do we have Filesystem here?" "Oh there it is! That's probably what the user wants. I'm going to resolve fetch, or get them from the container and give it to user!" 
+2. Service Container:  Imagine there's key-value pairs in a container.  Laravel is gonna look into container and check "Do we have Filesystem here?" "Oh there it is! That's probably what the user wants. I'm going to resolve fetch, or get them from the container and give it to user!"
 
 ```php
 use Illuminate\Filesystem\Filesystem; // import to us Filesystem
@@ -60,7 +60,7 @@ Route::get('/', function(){
 
 `app()->bind()` 으로 서비스 컨테이너에 등록이 가능함.
 
-- key( `example` )으로 value(`Example` 클래스의 인스턴스 생성)을 호출 할 수 있음.  
+- key( `example` )으로 value(`Example` 클래스의 인스턴스 생성)을 호출 할 수 있음.
 - 이후 out of container에서 `app('eaxmple')` 을 호출하면 동일하게 `Example` 인스턴스를 출력한 결과를 볼 수 있음.
 
 ```php
@@ -68,7 +68,7 @@ Route::get('/', function(){
 app()->bind('example', function() {
   return new \App\Example;
 })
-  
+
 Route::get('/', function(){
   dd(app('example'));
 })
@@ -83,7 +83,7 @@ Route::get('/', function(){
 
 #### 5. `singleton`
 
-위의 마지막 예시처럼 두번 호출할 경우 두개의 별도의 인스턴스가 생성됨. 만약 단 하나의 인스턴스만 생성되길 원할 경우, `singleton` 메서드를 사용함. 
+위의 마지막 예시처럼 두번 호출할 경우 두개의 별도의 인스턴스가 생성됨. 만약 단 하나의 인스턴스만 생성되길 원할 경우, `singleton` 메서드를 사용함.
 
 > `singleton` 메소드로 클래스나 인터페이스를 바인딩 하면 컨테이너는 한 번만 해당 의존성을 해결합니다. 싱글톤 바인딩으로 의존성이 해결되면, 컨테이너의 다른 부분에서 호출될 때 동일한 객체 인스턴스가 반환될 것입니다.
 
@@ -97,7 +97,7 @@ app()->singleton('example', function() {
 
 #### 6. Summary
 
-컨테이너 외부에서 요청이 들어왔을 경우,  
+컨테이너 외부에서 요청이 들어왔을 경우,
 
 1. 서비스 컨테이너에 존재하는지를 확인
 2. 어플리케이션 내에 존재하는 클래스인지 확인 (Full relative address를 입력하면 됨)

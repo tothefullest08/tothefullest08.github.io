@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Laravel 5.7 From Scratch 02 - Views / Controllers
-category: PHP
-tags: [Laracast, Laravel]
+category: Laravel
+tags: [PHP, Laracast, Laravel]
 comments: true
 ---
 
@@ -13,7 +13,7 @@ comments: true
 `Route:get()` 내에서 배열을 선언한 후, 연관배열을 return하는 것도 가능하다. 이때 `<?php : ?>` & `<?= ?>` 와 같이 traditional한 PHP 문법을 사용해도 되지만, Laracasts에서 지원하는 shorthands를 사용 할 수도 있음.
 
 - `<?php : ?>`   => `@`
-- `<?= ?>` => `{{ }}` 
+- `<?= ?>` => `{{ }}`
 
 ```php
 Route::get('/', function() {
@@ -41,7 +41,7 @@ Route::get('/', function() {
           	<li><?= $task; ?></li>
       	<?php endforeach; ?>
     </ul>
-    
+
     // Laravel shorthand: laravel이 코드를 읽으면서 @를 <?php의 형태로 대체시킴.
     <ul>
         @foreach ($tasks as $task)

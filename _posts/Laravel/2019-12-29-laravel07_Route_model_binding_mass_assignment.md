@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Laravel 5.7 From Scratch 07 - Route Model Binding / Mass Assignment
-category: PHP
-tags: [Laracast, Laravel]
+category: Laravel
+tags: [PHP, Laracast, Laravel]
 comments: true
 ---
 
@@ -45,7 +45,7 @@ public function show(Project $project)
 
 #### 2. Mass Assignment
 
-모델인 Project.php에서 massive assignment에 대한 설정을 할 수 있음. massive assignment를 통해 HTML으로 입력받을 수 있는 데이터베이스의 필드를 설정 할 수 있음. 이러한 설정을 하지 않을 경우, 브라우저의 개발자 도구를 악용하여 hidden으로 요청을 보내 데이터베이스를 조작하는 것이 가능해짐. 
+모델인 Project.php에서 massive assignment에 대한 설정을 할 수 있음. massive assignment를 통해 HTML으로 입력받을 수 있는 데이터베이스의 필드를 설정 할 수 있음. 이러한 설정을 하지 않을 경우, 브라우저의 개발자 도구를 악용하여 hidden으로 요청을 보내 데이터베이스를 조작하는 것이 가능해짐.
 
 massive assignment를 설정하는 방법은 크게 아래와 같이 2가지 방법이 있음.
 

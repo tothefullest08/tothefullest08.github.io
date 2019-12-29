@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Laravel 5.7 From Scratch 04 - Eloquent / Namespacing / MVC
-category: PHP
+category: Laravel
 tags: [Laracast, Laravel]
 comments: true
 ---
@@ -25,7 +25,7 @@ Psy Shell v0.9.11 (PHP 7.2.25 — cli) by Justin Hileman
 => null
 >>> $project = new App\Project;  // Project 클래스의 인스턴스 생성
 => App\Project {#2997}
-  
+
 // Migration 에서 생성한 create_projects_table을 적용시킴
 >>> $project->title = 'My First Project';
 => "My First Project"
@@ -37,8 +37,8 @@ Psy Shell v0.9.11 (PHP 7.2.25 — cli) by Justin Hileman
      description: "Lorem ipsum",
    }
 >>> $project->save(); // DB에 저장
-=> true  
-  
+=> true
+
 >>> App\Project::first();
 => App\Project {#3019
      id: 1,
@@ -186,9 +186,9 @@ class ProjectsController extends Controller
 
 #### 4. 모델 연결 & namespaces
 
-라라벨은 PSR-4(an autoloading specification)이라는 컨벤션 룰에 따라 네임스페이스를 설정해줘야함. 
+라라벨은 PSR-4(an autoloading specification)이라는 컨벤션 룰에 따라 네임스페이스를 설정해줘야함.
 
-- `$projects = \App\Project::all();` 
+- `$projects = \App\Project::all();`
 
 model 은 app 디렉토리 내에 있으므로 App 으로 시작해야함. 이때, controller는 App\Http\Controllers 디렉토리 내에 있기 때문에 루트 디렉토리에서 시작하기 위해서는 네임스페이스 시작을 \으로 해야함. 그렇게 하지 않을 시, 현재 디렉토리를 기준으로 인식해버림.
 
@@ -205,7 +205,7 @@ class ProjectsController extends Controller
     public function index()
     {
         $projects = \App\Project::all();
-      
+
         return view('projects.index');
     }
 }
@@ -245,7 +245,7 @@ class ProjectsController extends Controller
     public function index()
     {
         $projects = Project::all();
-        
+
 //        return view('projects.index', ['projects' => $projects]);
         return view('projects.index', compact('projects'));
 

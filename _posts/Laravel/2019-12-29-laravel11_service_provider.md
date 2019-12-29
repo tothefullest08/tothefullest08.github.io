@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Laravel 5.7 From Scratch 11 - Service Provider
-category: PHP
-tags: [Laracast, Laravel]
+category: Laravel
+tags: [PHP, Laracast, Laravel]
 comments: true
 ---
 
@@ -14,11 +14,11 @@ App\Providers를 보면 라라벨에서 제공하는 기본 providers를 볼 수
 
 
 
-#### 2. `boot` & `register` 
+#### 2. `boot` & `register`
 
 서비스 프로바이더는 `boot()` 와 `register()` 두 가지의 메서드를 갖고 있음.
 
-- `register` : 서비스 컨테이너에 바인딩. 라라벨은 App\config\app.php - providers에 있는 서비스 프로바이더들을 돌면서 `register` 메서드를 호출함. 
+- `register` : 서비스 컨테이너에 바인딩. 라라벨은 App\config\app.php - providers에 있는 서비스 프로바이더들을 돌면서 `register` 메서드를 호출함.
 - `boot` : register이 끝난 이후, 라라벨은 다시한번 pp\config\app.php - providers에 있는 서비스 프로바이더들을 돌면서 `boot` 메서드를 호출함.
 
 ```php
@@ -73,7 +73,7 @@ Route::get('/', function(Twitter $twitter) {
 
 새로운 서비스 프로바이더 생성하여 위의 로직을 새로운 프로바이더에 연결시킬 수 있음
 
-- `php artisan make:provider SocialServiceProvider` 
+- `php artisan make:provider SocialServiceProvider`
 - app\config\app.php에 서비스 프로바이더 추가
 
 ```php

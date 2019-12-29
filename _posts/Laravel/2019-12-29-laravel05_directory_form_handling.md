@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Laravel 5.7 From Scratch 05 - Directory Structure / Form Handling / CSRF
-category: PHP
-tags: [Laracast, Laravel]
+category: Laravel
+tags: [PHP, Laracast, Laravel]
 comments: true
 ---
 
@@ -18,13 +18,13 @@ comments: true
 
 `composer.json` : configuration file that specifies all of dependencies (maybe only for development purposes)
 
-`composer.lock` : taks all of dependencies you pulled in, locks them to specific versions - ensure the consistency 
+`composer.lock` : taks all of dependencies you pulled in, locks them to specific versions - ensure the consistency
 
 `package.json` : help with front-end compilation. dependencies are installed via Node.js and represented in javascript.
 
 `webpack.mix.js` : wrapper on webpack. compiling javascript, scss, less. compile output to go.
 
-`yarn.lock` : similar to `composer.lock` 
+`yarn.lock` : similar to `composer.lock`
 
 `\vender` : where all dependencies are installed.
 
@@ -48,10 +48,10 @@ comments: true
 
 `\bootsrap` : framework bootstrap itself.
 
-`\app` : where your app lives. all of your model/controller/more complicated artisan command(\\console directory) go, 
+`\app` : where your app lives. all of your model/controller/more complicated artisan command(\\console directory) go,
 
 - `Http\middleware` : layers of onion...  when request comes in, user visits page. it is gonna go throw all of these layer(middleware). literally loop. loop throw all of these layers and trigger necessary layer. each of layers in these onion has the opportunity to respond to request before hit controller. in kerne file, you can find `$middleware` array  that all of middleware are run during every single request to your application.
-- `Providers` 
+- `Providers`
 
 
 
@@ -63,7 +63,7 @@ Routes\web.php 내에 routing 코드 입력
 
 ```php
 //post 방식으로 /projects라는 url로 요청이 들어왔을 경우, ProjectsController@store메서드 호출
-Route::post('/projects', 'ProjectsController@store'); 
+Route::post('/projects', 'ProjectsController@store');
 //마찬가지로, get방식으로 하기 주소로 요청이 들어왔을 경우.
 Route::get('/projects/create', 'ProjectsController@create');
 ```

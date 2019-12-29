@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Laravel 5.7 From Scratch 01 - Basic Routing / Blade Layout Files
-category: PHP
-tags: [Laracast, Laravel]
+category: Laravel
+tags: [PHP, Laracast, Laravel]
 comments: true
 ---
 
@@ -79,12 +79,12 @@ layout.blade.php 를 views 디렉토리 내에 생성하여 공통적으로 쓰�
 
 `@yield()` 의 두번째 인자로 default 값을 설정할 수 있으며, template을 상속받아 입력하는 내용이 길지 않다면 마찬가지로 `@section()`의 두번째 인자로, 입력 값을 간단하게 입력 할 수 도 있음.
 
-```php+HTML
-<!-- layout.blade.php -->
+```php
+//layout.blade.php
 <head>
     <title>@yield('title', 'laracasts')</title>
 </head>
 
-<!-- about.blade.php -->
+// about.blade.php
 @section('title', 'about')
 ```

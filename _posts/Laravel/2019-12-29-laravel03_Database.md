@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Laravel 5.7 From Scratch 03 - Databases / Migrations
-category: PHP
-tags: [Laracast, Laravel]
+category: Laravel
+tags: [PHP, Laracast, Laravel]
 comments: true
 ---
 
@@ -11,7 +11,7 @@ comments: true
 #### 1. GET STARTED
 
 `laravel new project`  : project라는 새로운 라라벨 프로젝트 생성
-`.env` : configuration & private detail을 나타냄. (private api key, DB password 등) 
+`.env` : configuration & private detail을 나타냄. (private api key, DB password 등)
 
 Sequel_pro 설치 후 DB 연결, tutorial이라는 DB 생성 후 그에 맞게 `.env` 파일 수정. 각 변수를 `.env`에 저장하였지만, 어떻게 이 변수들이 어플리케이션에서 참조가 가능할까? => config/database.php 확인
 
@@ -55,7 +55,6 @@ mysql> describe users;
 8 rows in set (0.00 sec)
 ```
 
-#### 
 
 #### 3. Database 컬럼명 변경
 
@@ -78,7 +77,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-						$table->string('username');            
+						$table->string('username');
           	//$table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
