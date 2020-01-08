@@ -226,7 +226,6 @@ public function only_signed_in_users_can_checkin_a_book()
 체크아웃되지 않은 책을 체크인할 경우 404에러를 반환하는 것이 일반적임. 
 
 -  checkin 테스트 코드를 기반으로 작성하되, `Book@checkout` 을 동작시키는 코드는 삭제시킴.
-
 -  Reservation 객체는 생성되지 않으므로 0으로 만들며 나머지 코드는 삭제시킴
 -  그리고 /checkin/ 엔드포인트에 대하여 404를 반환하는 assert 코드 구현
 
