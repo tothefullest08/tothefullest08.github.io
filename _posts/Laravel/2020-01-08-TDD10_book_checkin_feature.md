@@ -6,6 +6,8 @@ tags: [PHP, TDD, Laravel, coderstape]
 comments: true
 ---
 
+> Coder's tape의 Test Driven Laravel [강의](https://www.youtube.com/playlist?list=PLpzy7FIRqpGAbkfdxo1MwOS9xjG3O3z1y) 를 듣고 정리한 포스팅 입니다.
+
 #### 1. Checkin 테스트 코드 작성
 
 기본적인 코드는 `a_book_can_be_checked_out_by_a_signed_in_user` 메소드를 토대로 만드나, `reservation` 객체를 생성하려면  `Book@checkout`이 선행되어야함. 

@@ -6,7 +6,7 @@ tags: [PHP, TDD, Laravel, coderstape]
 comments: true
 ---
 
-
+> Coder's tape의 Test Driven Laravel [강의](https://www.youtube.com/playlist?list=PLpzy7FIRqpGAbkfdxo1MwOS9xjG3O3z1y) 를 듣고 정리한 포스팅 입니다.
 
 #### 1. Checkin 테스트 코드 구현
 
