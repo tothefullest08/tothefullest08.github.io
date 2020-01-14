@@ -15,7 +15,6 @@ comments: true
 확장에는 개방되어야하며 변경에는 폐쇄되어야한다. 기존의 코드를 변경하지 않으면서 기능을 추가할 수 있도록 설계되어야 함.
 
 - open for extension:  it should be simple to change the behavior of a particular entity (class)
-
 - closed for modification: **Goal** (very difficult to follow perfectly). something you should strive for its goal. **Change behavior without modifying original source code** .
 
 
