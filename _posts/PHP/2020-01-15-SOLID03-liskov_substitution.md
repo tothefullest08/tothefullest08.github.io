@@ -15,7 +15,6 @@ comments: true
 > - Let q(x) be a property provable about objects x of type T.
 >
 > - Then q(y) should be provable for objects y of type S where S is a subtype of T
->
 
 서브 타입(자식 클래스) 은 언제나 자신의 기반타입(부모 클래스) 으로 교체 할 수 있어야 한다. Derived(sub) classes must be substitutable for their base classes
 

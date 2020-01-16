@@ -11,7 +11,6 @@ comments: true
 #### 1. GET STARTED
 
 > A client should not be forced to implement an interface that it doesn't use.  
->
 > knowledge that one object has another object.
 
 스타트렉의 세계관에 있다고 가정할 때 캡틴이라는 클래스가 있을 것이다. 캡틴의 주요 역할 중 하나는 선원들을 고용하는 것이며 코드로 작성하면 다음과 같을 것이다.
@@ -54,7 +53,6 @@ class Captain {
 만약에 이제 캡틴이 안드로이드 선원을 뽑는다고 하면, 인터페이스 `WorkerInterface` 를 만들어 안드로이드 클래스 `AndroidWorker` 가 인터페이스를 구현하도록 할 것이다. 여기서, 안드로이드는 잠을 자지 않으므로 `sleep ` 메소드는 `null` 을 반환하게 코드를 작성할 것임. 
 
 - 여기서 ISP을 위반하게 된다. (client should not be forced to implement an interface that it doesn't use)
-
 - `AndroidWorker`  클래스는 `sleep` 메소드를 강제 받고 있음.
 
 ```php
