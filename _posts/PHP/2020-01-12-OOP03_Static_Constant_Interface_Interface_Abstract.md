@@ -6,7 +6,7 @@ tags: [Laracast, PHP, OOP]
 comments: true
 ---
 
-
+> Laracasts - Object-Oridented Bootcamp [강의](https://laracasts.com/series/object-oriented-bootcamp-in-php)를 듣고 정리한 포스팅 입니다.
 
 #### 1. Statics
 

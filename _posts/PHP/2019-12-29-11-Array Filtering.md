@@ -6,9 +6,12 @@ tags: [Laracast, PHP]
 comments: true
 ---
 
-```php
-<?php
+> Laracasts - The PHP Practitioner [강의](https://laracasts.com/series/php-for-beginners)를 듣고 정리한 포스팅 입니다.
+#### 0. GET STARTED
 
+기본 코드는 다음과 같음
+
+```php
 class Post
 {
     public $title;

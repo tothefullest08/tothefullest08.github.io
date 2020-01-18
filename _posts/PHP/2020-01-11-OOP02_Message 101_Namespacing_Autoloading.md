@@ -6,6 +6,8 @@ tags: [Laracast, PHP, OOP]
 comments: true
 ---
 
+> Laracasts - Object-Oridented Bootcamp [강의](https://laracasts.com/series/object-oriented-bootcamp-in-php)를 듣고 정리한 포스팅 입니다.
+
 #### 1. Messages 101
 
 사람들은 직업을 갖고 있으며 비즈니스를 위해 일을 함. 비즈니스는 사람들을 고용함. 고용된 사람들은 스태프로써 일을 함.

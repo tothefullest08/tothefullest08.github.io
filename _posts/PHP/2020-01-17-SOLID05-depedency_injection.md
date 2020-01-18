@@ -6,6 +6,8 @@ tags: [Laracast, PHP, OOP, SOLID]
 comments: true
 ---
 
+> Laracasts - SOLID Principles in PHP [강의](https://laracasts.com/series/solid-principles-in-php)를 듣고 정리한 포스팅 입니다.
+
 #### 1. Depedency Inversion(의존성 역전)
 
 -  High level modules should not depend upon low level modules. Instead, they should depend upon abstractions(All of this is about decoupling code)

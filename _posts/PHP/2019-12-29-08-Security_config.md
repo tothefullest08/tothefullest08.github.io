@@ -6,6 +6,8 @@ tags: [Laracast, PHP]
 comments: true
 ---
 
+> Laracasts - The PHP Practitioner [강의](https://laracasts.com/series/php-for-beginners)를 듣고 정리한 포스팅 입니다.
+
 #### 1. Config.php
 
 `database/Connection.php` 에는 현재 DSN, 아이디, 비밀번호가 전부 노출되어있음. 보안상의 문제가 발생할 수 있으므로, 이러한 데이터들을 따로 일괄적으로 관리하는 것이 더 적합함. => `config.php` 생성

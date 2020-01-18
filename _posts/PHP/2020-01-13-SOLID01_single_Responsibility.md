@@ -6,6 +6,8 @@ tags: [Laracast, PHP, OOP, SOLID]
 comments: true
 ---
 
+> Laracasts - SOLID Principles in PHP [강의](https://laracasts.com/series/solid-principles-in-php)를 듣고 정리한 포스팅 입니다.
+
 #### 1. GET STARTED
 
 >  A Class Should have one, and only one, reason to change

@@ -6,7 +6,7 @@ tags: [Laracast, PHP]
 comments: true
 ---
 
-
+> Laracasts - The PHP Practitioner [강의](https://laracasts.com/series/php-for-beginners)를 듣고 정리한 포스팅 입니다.
 
 #### 1. Variable
 
