@@ -2,7 +2,7 @@
 layout: post
 title: Object-Oriented Bootcamp 03 - Static, Constant / Interface / Interface vs Abstract
 category: PHP
-tags: [Laracast, PHP, OOP]
+tags: [Laracast, PHP, OOP, Architecture]
 comments: true
 ---
 

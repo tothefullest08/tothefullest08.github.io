@@ -2,7 +2,7 @@
 layout: post
 title: SOLID Principles in PHP 03 - Liskov substitution Principle (LSP)
 category: PHP
-tags: [Laracast, PHP, OOP, SOLID]
+tags: [Laracast, PHP, OOP, SOLID, Architecture]
 comments: true
 ---
 

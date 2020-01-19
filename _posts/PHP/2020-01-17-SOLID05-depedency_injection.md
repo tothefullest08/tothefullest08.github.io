@@ -2,7 +2,7 @@
 layout: post
 title: SOLID Principles in PHP 05 - Dependency Inversion Principle (DIP)
 category: PHP
-tags: [Laracast, PHP, OOP, SOLID]
+tags: [Laracast, PHP, OOP, SOLID, Architecture]
 comments: true
 ---
 

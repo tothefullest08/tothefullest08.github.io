@@ -2,7 +2,7 @@
 layout: post
 title: Object-Oriented Bootcamp 01 - Class / Encapsulation / Inheritance / Abstract class
 category: PHP
-tags: [Laracast, PHP, OOP]
+tags: [Laracast, PHP, OOP, Architecture]
 comments: true
 ---
 

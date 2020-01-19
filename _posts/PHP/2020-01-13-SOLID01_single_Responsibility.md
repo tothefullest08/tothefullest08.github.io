@@ -2,7 +2,7 @@
 layout: post
 title: SOLID Principles in PHP 01 - Single Responsibility Principle (SRP)
 category: PHP
-tags: [Laracast, PHP, OOP, SOLID]
+tags: [Laracast, PHP, OOP, SOLID, Architecture]
 comments: true
 ---
 

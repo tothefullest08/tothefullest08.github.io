@@ -2,7 +2,7 @@
 layout: post
 title: Object-Oriented Bootcamp 02 - Message 101 / Namespacing / Autoloading
 category: PHP
-tags: [Laracast, PHP, OOP]
+tags: [Laracast, PHP, OOP, Architecture]
 comments: true
 ---
 

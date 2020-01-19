@@ -2,7 +2,7 @@
 layout: post
 title: SOLID Principles in PHP 02 - Open Closed Principle (OCP)
 category: PHP
-tags: [Laracast, PHP, OOP, SOLID]
+tags: [Laracast, PHP, OOP, SOLID, Architecture]
 comments: true
 ---
 
