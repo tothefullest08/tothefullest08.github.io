@@ -82,7 +82,11 @@ echo "Hello world";
 
 - 그림 설명
 
- ![](/img/base.png)
+  
+
+![](img/base.png)
+
+
 
 
 
@@ -95,5 +99,5 @@ echo "Hello world";
 
 추가로, 서버사이드 스크립트는 경우에 따라 데이터베이스에 접근하여 데이터를 HTML 문서로 변경한 다음 웹서버로 데이터를 전달함.
 
-![](/img/web.png)
+![](img/web.png)
 
