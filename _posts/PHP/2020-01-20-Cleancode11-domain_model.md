@@ -16,11 +16,7 @@ comments: true
 - 초기 도메인 모델의 예시 - 클래스, 멤버변수, 관계만 명시되어 있음
 	- 정적 모델링 - 모든 사람들이 공유 할 수있게 청사진을 그림
 
-![](/assets/php/cc11_domain.png)
-
 <img src="/assets/php/cc11_domain.png" style="zoom:40%;" />
-
-
 
 
 

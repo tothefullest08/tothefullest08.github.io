@@ -264,7 +264,7 @@ false
 false
 ```
 
-
+<img src="/assets/javascript/equal.png"/>
 
 ![](img/equal.png)
 
