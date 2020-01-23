@@ -82,7 +82,7 @@ echo "Hello world";
 
 - 그림 설명
 
-  
+  <img src="/assets/php/base.png"/>
 
 ![](img/base.png)
 
@@ -98,6 +98,8 @@ echo "Hello world";
 웹브라우저가 요청한 페이지(자원)이 HTML이 아닌 경우 웹 서버는 처리가 불가능함. 따라서 처리 가능한 적합한 언어의 엔진을 호출하여 사용자가 요청한 파일의 처리를 위임함. PHP, PYTHON 등이 파일을 읽어서 각각의 언어(코드)를 해석한 다음 그 결과를 웹서버에 돌려줌.  (CGI에 의해 약속된 방식에 따라)
 
 추가로, 서버사이드 스크립트는 경우에 따라 데이터베이스에 접근하여 데이터를 HTML 문서로 변경한 다음 웹서버로 데이터를 전달함.
+
+<img src="/assets/php/web.png"/>
 
 ![](img/web.png)
 
