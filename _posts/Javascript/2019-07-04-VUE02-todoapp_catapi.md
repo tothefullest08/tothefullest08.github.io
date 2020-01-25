@@ -144,7 +144,7 @@ comments: true
 - chrome - 도구더보기 - 확장프로그램 관리 - 세부정보 - 파일 URL에 대한 엑세스 허용
 - F12 눌린 후, 개발자 도구 탭의 끝으로 가면 Vue 라는 새로운 메뉴가 생긴 것을 알 수 있음.
 
-<img src="/assets/javascript/devtools.png" />
+<img src="/assets/javascript/devtool.png" />
 
 
 
