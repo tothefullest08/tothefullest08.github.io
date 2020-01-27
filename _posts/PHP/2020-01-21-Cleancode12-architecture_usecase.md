@@ -22,8 +22,6 @@ comments: true
 
 <img src="/assets/php/cc11_mvc.png" style="zoom:60%;" />
 
-<img src="img/cc11_mvc.png" align="left" style="zoom:60%;" />
-
 - View/Controller: 강하게 HTML과 연관
 - Model: 강하게 Controller에 연관
 - View/Controller: 강하게 모델에 coupling. 모델의 구조에 많은 영향을 미침.
@@ -64,10 +62,6 @@ comments: true
   - `TimeCard`  & `Employee` 와 같은 Entity(도메인 모델)과도 상호작용을 함
 
 <img src="/assets/php/cc11_usecasedriven.png"  style="zoom:50%;" />
-
-<img src="img/cc11_usecasedriven.png" style="zoom:50%;" />
-
-
 
 
 
@@ -149,8 +143,6 @@ Primary Course:
   
   <img src="/assets/php/cc11_interactor.png"  style="zoom:100%;" />
   
-    <img src="img/cc11_interactor.png"  style="zoom:100%;" />
-  
   - 예) CreateOrderInteractor: OrderEntity에 create 하고, GetId를 호출. 이러한 로직은 이 어플리케이션에서만 수행하며 다른데서는 안할 수 도 있음(이 두 메소드는 application 로직과 무관)
   
   - Use Case의 목적을 달성하기 위해 이러한 메소드들을 어떻게 호출하는지 아는 것이 Interactor의 책임이다.
@@ -186,8 +178,6 @@ Primary Course:
 
 <img src="/assets/php/cc11_flow.png" style="zoom:50%;" />
 
-<img src="img/cc11_flow.png" style="zoom:50%;" />
-
 *"정해진 Flow는 없으며 단지 관계만 있을 뿐임."*
 
 1. Request & Response Model은 순수한 데이터 구조이다.
@@ -197,9 +187,7 @@ Primary Course:
 4. Interactor은 관련된 Entity를 사용해 무언가를 수행하고 결과를 수집
 5. 수행 결과를 Response Model로 변환해 Boudary를 통해 외부로 전달함
 
-<img src="/assets/php/cc11_flow2.png" align="left" style="zoom:80%;" />
-
-<img src="img/cc11_flow2.png" style="zoom:80%;" />
+<img src="/assets/php/cc11_flow2.png" style="zoom:80%;" />
 
 
 
@@ -225,8 +213,6 @@ Primary Course:
 - 그러므로 DB와 Entity간의 Boundary Layer를 제공해야 함 (Dependency Inversion Principle)
 
 <img src="/assets/php/cc11_db.png" style="zoom:50%;" />
-
-<img src="img/cc11_db.png" style="zoom:50%;" />
 
 
 
@@ -255,53 +241,33 @@ Primary Course:
 
 <img src="/assets/php/cc11_request_process1.png" align="middle" style="zoom:80%;" />
 
-<img src="img/cc11_request_process1.png" align="middle" style="zoom:80%;" />
-
 ##### 사용자가 Delivery Mechanism을 통해 요청을 전달
 
 <img src="/assets/php/cc11_request_process2.png" align="middle" style="zoom:80%;" />
 
-<img src="img/cc11_request_process2.png" align="middle" style="zoom:80%;" />
-
 <img src="/assets/php/cc11_request_process3.png" align="middle" style="zoom:80%;" />
 
-<img src="img/cc11_request_process3.png" align="middle" style="zoom:80%;" />
-
 <img src="/assets/php/cc11_request_process4.png" align="middle" style="zoom:80%;" />
-
-<img src="img/cc11_request_process4.png" align="middle" style="zoom:80%;" />
 
 ##### 컨트롤러가 Request Model을 Interactor(Use Case)에 전달
 
 <img src="/assets/php/cc11_request_process5.png" align="middle" style="zoom:80%;" />
 
-<img src="img/cc11_request_process5.png" align="middle" style="zoom:80%;" />
-
 ##### Interactor가 Boundary 인터페이스를 구현함. Delivery Mechanism에서는 Boundary 인터페이스를 통해 Interactor를 호출함.
 
 <img src="/assets/php/cc11_request_process6.png" align="middle" style="zoom:80%;" />
 
-<img src="img/cc11_request_process6.png" align="middle" style="zoom:80%;" />
-
 <img src="/assets/php/cc11_request_process7.png" align="middle" style="zoom:80%;" />
-
-<img src="img/cc11_request_process7.png" align="middle" style="zoom:80%;" />
 
 ##### Interactor가 수행 결과를 Delivery Mechanism에 반환
 
 <img src="/assets/php/cc11_request_process8.png" align="middle" style="zoom:80%;" />
 
-<img src="img/cc11_request_process8.png" align="middle" style="zoom:80%;" />
-
 ##### Delivery Mechanism의 어떤 객체가 Boundary 인터페이스를 구현함. Interactor는 이 Boundary 인터페이스를 통해 결과를 전달함.
 
 <img src="/assets/php/cc11_request_process9.png" align="middle" style="zoom:80%;" />
 
-<img src="img/cc11_request_process9.png" align="middle" style="zoom:80%;" />
-
 <img src="/assets/php/cc11_request_process10.png" align="middle" style="zoom:80%;" />
-
-<img src="img/cc11_request_process10.png" align="middle" style="zoom:80%;" />
 
 
 > 결과적으로 Delivery Mechanism에 해당하는 Web Server는 어플리케이션 핵심인 Interactor를 알지 못함. 이로 인해 얻을 수 있는 점은 Delivery Mechanism이 Easy to Plug In/Out 될 수 있다는 것임.
