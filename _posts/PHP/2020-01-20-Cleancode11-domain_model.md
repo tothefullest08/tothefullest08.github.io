@@ -22,7 +22,7 @@ comments: true
 
 테스트
 
-![](img/cc11_domain.png)
+![](/assets/php/cc11_domain.png)
 
 
 
