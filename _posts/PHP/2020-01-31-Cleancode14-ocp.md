@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Clean code - SOLID 02 - Open Closed Principle(OCP)
+title: Clean code - SOLID 02 - Open Closed Principle (OCP)
 category: PHP
 tags: [clean coders, clean architecture, architecture, OOP, SOLID]
 comments: true

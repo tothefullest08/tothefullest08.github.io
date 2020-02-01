@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Clean code - SOLID 01 - Single Responsibility Principle(SRP)
+title: Clean code - SOLID 01 - Single Responsibility Principle (SRP)
 category: PHP
 tags: [clean coders, clean architecture, architecture, OOP, SOLID]
 comments: true
